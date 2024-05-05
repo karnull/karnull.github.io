@@ -1,22 +1,19 @@
 
+/*-- Generic Tags ----------------------------------*/
+
 body {
-    background-color: black;
-    color: #F9F300;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #000000;
+    color: #DDFFDD;
+    font-family: 'Anonymous Pro', monospace;
     margin: 0;
     padding: 0;
-}
-
-.container {
-    max-width: 854px;
-    margin: 50px auto;
-    padding: 0 20px;
 }
 
 h1 {
     font-size: 36px;
     text-align: center;
     margin-bottom: 30px;
+    color: #FFFFFF;
 }
 
 p {
@@ -26,18 +23,44 @@ p {
 }
 
 a {
-    color: #9400D3;
-    text-decoration: underline;
+    color: #F81B3F;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+    color: #F9F300;
+}
+
+
+/*-- Classes and ID --------------------------------*/
+
+.container {
+    max-width: 855px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
 .back-button {
     display: block;
     margin-bottom: 20px;
 }
+
+
+/*-- Side Image ------------------------------------*/
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1%;
+    height: 100vh;
+    background-image: url('media/sidebar.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1000;
+}
+
+/*-- Navigation Bar --------------------------------*/
 
 .navbar {
     list-style-type: none;
@@ -49,3 +72,21 @@ a:hover {
     display: inline;
     margin: 0 10px;
 }
+
+
+/*-- Custom Scrollbar: Chrome & Safari -------------*/
+
+body::-webkit-scrollbar {
+    width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 6px;
+    border: 1px solid #F81B3F;
+}
+
