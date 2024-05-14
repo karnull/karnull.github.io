@@ -60,6 +60,19 @@ a:hover {
     z-index: 1000;
 }
 
+/* for phones */
+@media only screen and (max-width: 767px) {
+    .sidebar {
+        width: 1.5%;
+        left: 0;
+        background-position: left top;
+        transform: rotate(90deg);
+        transform-origin: top;
+        margin: 0.5% 100%;
+        z-index: 1000;
+    }
+}
+
 /*-- Navigation Bar --------------------------------*/
 
 .navbar {
@@ -90,3 +103,42 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid #F81B3F;
 }
 
+/*-- Blinking underscore ---------------------------*/
+
+@keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.blinking-underscore {
+    animation: blink 1s infinite;
+    color: #F81B3F;
+}
+
+
+/*-- Alerts ----------------------------------------*/
+
+.alert {
+    display: block;
+    text-align: center;
+    animation: colorChange 3s infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        color: red;
+    }
+    25% {
+        color: white;
+    }
+    50% {
+        color: yellow;
+    }
+    75% {
+        color: blue;
+    }
+    100% {
+        color: red;
+    }
+}
