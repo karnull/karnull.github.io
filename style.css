@@ -2,143 +2,193 @@
 /*-- Generic Tags ----------------------------------*/
 
 body {
-    background-color: #000000;
-    color: #DDFFDD;
-    font-family: 'Anonymous Pro', monospace;
-    margin: 0;
-    padding: 0;
+	background-color: #000000;
+	color: #DDFFDD;
+	font-family: 'Anonymous Pro', monospace;
+	margin: 0;
+	padding: 0;
 }
 
 h1 {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #FFFFFF;
+	font-size: 36px;
+	text-align: center;
+	margin-bottom: 30px;
+	color: #FFFFFF;
 }
 
 p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
+	font-size: 18px;
+	line-height: 1.6;
+	margin-bottom: 20px;
 }
 
 a {
-    color: #F81B3F;
-    text-decoration: none;
+	color: #F81B3F;
+	text-decoration: none;
 }
 
 a:hover {
-    color: #F9F300;
+	color: #F9F300;
 }
 
 
 /*-- Classes and ID --------------------------------*/
 
 .container {
-    max-width: 855px;
-    margin: 50px auto;
-    padding: 0 20px;
+	max-width: 855px;
+	margin: 50px auto;
+	padding: 0 20px;
+}
+
+.container img, video {
+	width: 100%;
+	margin-bottom: 1%;
+	border-radius: 12px;
+	border: 1px solid #441212;
 }
 
 .back-button {
-    display: block;
-    margin-bottom: 20px;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.code {
+	font-family: "JetBrains Mono", monospace;
+	font-size: 13px;
+	color: #eeeeee;
+	background-color: #232323;
+	padding: 3px 7px;
+}
+
+.img404 {
+	padding: 10% 0% 2% 0%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 15%;
 }
 
 
 /*-- Side Image ------------------------------------*/
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 1%;
-    height: 100vh;
-    background-image: url('media/sidebar.png');
-    background-size: cover;
-    background-position: center;
-    z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 1%;
+	height: 100vh;
+	background-image: url('media/sidebar.png');
+	background-size: cover;
+	background-position: center;
+	z-index: 1000;
 }
 
 /* for phones */
 @media only screen and (max-width: 767px) {
-    .sidebar {
-        width: 1.5%;
-        left: 0;
-        background-position: left top;
-        transform: rotate(90deg);
-        transform-origin: top;
-        margin: 0.5% 100%;
-        z-index: 1000;
-    }
+	.sidebar {
+		width: 1.5%;
+		left: 0;
+		background-position: left top;
+		transform: rotate(90deg);
+		transform-origin: top;
+		margin: 0.5% 100%;
+		z-index: 1000;
+	}
 }
 
 /*-- Navigation Bar --------------------------------*/
 
 .navbar {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
+	list-style-type: none;
+	padding: 0;
+	text-align: center;
 }
 
 .navbar li {
-    display: inline;
-    margin: 0 10px;
+	display: inline;
+	margin: 0 10px;
 }
 
 
 /*-- Custom Scrollbar: Chrome & Safari -------------*/
 
 body::-webkit-scrollbar {
-    width: 2px;
+	width: 2px;
 }
 
 body::-webkit-scrollbar-track {
-    background: #000000;
+	background: #000000;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 6px;
-    border: 1px solid #F81B3F;
+	background-color: #000000;
+	border-radius: 6px;
+	border: 1px solid #F81B3F;
 }
 
 /*-- Blinking underscore ---------------------------*/
 
 @keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
 }
 
 .blinking-underscore {
-    animation: blink 1s infinite;
-    color: #F81B3F;
+	animation: blink 1s infinite;
+	color: #F81B3F;
 }
 
 
 /*-- Alerts ----------------------------------------*/
 
 .alert {
-    display: block;
-    text-align: center;
-    animation: colorChange 3s infinite;
+	display: block;
+	text-align: center;
+	animation: colorChange 3s infinite;
 }
 
 @keyframes colorChange {
-    0% {
-        color: red;
-    }
-    25% {
-        color: white;
-    }
-    50% {
-        color: yellow;
-    }
-    75% {
-        color: blue;
-    }
-    100% {
-        color: red;
-    }
+	0% {
+		color: red;
+	}
+	25% {
+		color: white;
+	}
+	50% {
+		color: yellow;
+	}
+	75% {
+		color: blue;
+	}
+	100% {
+		color: red;
+	}
 }
+
+
+/*-- Boxes -----------------------------------------*/
+
+.external-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	list-style: none;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+.link-btn {
+	border: 1px solid #441212;
+	padding: 10px 27px;
+	width: 150px;
+	text-align: center;
+	color: red;
+}
+
+.link-btn:hover {
+	border-color: red;
+	color: yellow;
+}
+
