@@ -1,9 +1,8 @@
-
 /*-- Generic Tags ----------------------------------*/
 
 body {
-	background-color: #000000;
-	color: #DDFFDD;
+	background-color: #f4f3eb;
+	color: #590d22;
 	font-family: 'Anonymous Pro', monospace;
 	margin: 0;
 	padding: 0;
@@ -13,7 +12,7 @@ h1 {
 	font-size: 36px;
 	text-align: center;
 	margin-bottom: 30px;
-	color: #FFFFFF;
+	color: #590d22;
 }
 
 p {
@@ -23,12 +22,12 @@ p {
 }
 
 a {
-	color: #F81B3F;
+	color: #ff4d6d;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #F9F300;
+	color: #d81159;
 }
 
 
@@ -55,8 +54,8 @@ a:hover {
 .code {
 	font-family: "JetBrains Mono", monospace;
 	font-size: 13px;
-	color: #eeeeee;
-	background-color: #232323;
+	color: #000000;
+	background-color: #ffd9d9;
 	padding: 3px 7px;
 }
 
@@ -96,6 +95,7 @@ a:hover {
 	}
 }
 
+
 /*-- Navigation Bar --------------------------------*/
 
 .navbar {
@@ -126,6 +126,7 @@ body::-webkit-scrollbar-thumb {
 	border: 1px solid #F81B3F;
 }
 
+
 /*-- Blinking underscore ---------------------------*/
 
 @keyframes blink {
@@ -136,7 +137,7 @@ body::-webkit-scrollbar-thumb {
 
 .blinking-underscore {
 	animation: blink 1s infinite;
-	color: #F81B3F;
+	color: #ff4d6d;
 }
 
 
@@ -149,21 +150,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 @keyframes colorChange {
-	0% {
-		color: red;
-	}
-	25% {
-		color: white;
-	}
-	50% {
-		color: yellow;
-	}
-	75% {
-		color: blue;
-	}
-	100% {
-		color: red;
-	}
+	0%   { color: red;    }
+	25%  { color: black;  }
+	50%  { color: yellow; }
+	75%  { color: blue;   }
+	100% { color: red;    }
 }
 
 
@@ -180,7 +171,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-btn {
-	border: 1px solid #441212;
+	border: 1px solid #ff4d6d;
 	padding: 10px 27px;
 	width: 150px;
 	text-align: center;
@@ -188,7 +179,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-btn:hover {
-	border-color: red;
-	color: yellow;
+	border-color: #d81159;
 }
 
