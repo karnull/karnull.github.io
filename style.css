@@ -1,9 +1,9 @@
 /*-- Generic Tags ----------------------------------*/
 
 body {
-	background-color: #f4f3eb;
-	color: #590d22;
-	font-family: 'Anonymous Pro', monospace;
+	background-color: #FFFFFF;
+	color: #000000;
+    font-family: "Red Hat Display", sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -12,7 +12,7 @@ h1 {
 	font-size: 36px;
 	text-align: center;
 	margin-bottom: 30px;
-	color: #590d22;
+	color: #000000;
 }
 
 p {
@@ -22,12 +22,12 @@ p {
 }
 
 a {
-	color: #ff4d6d;
+	color: #1ABC9C;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #d81159;
+	color: #FFA500;
 }
 
 
@@ -43,7 +43,7 @@ a:hover {
 	width: 100%;
 	margin-bottom: 1%;
 	border-radius: 12px;
-	border: 1px solid #441212;
+	border: 1px solid #000000;
 }
 
 .back-button {
@@ -52,10 +52,11 @@ a:hover {
 }
 
 .code {
-	font-family: "JetBrains Mono", monospace;
-	font-size: 13px;
-	color: #000000;
-	background-color: #ffd9d9;
+	/* font-family: "JetBrains Mono", monospace; */
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 15px;
+	color: #505050;
+	background-color: #eeeeee;
 	padding: 3px 7px;
 }
 
@@ -65,6 +66,13 @@ a:hover {
 	margin-left: auto;
 	margin-right: auto;
 	width: 15%;
+}
+
+.monospace {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #505050;
 }
 
 
@@ -113,17 +121,17 @@ a:hover {
 /*-- Custom Scrollbar: Chrome & Safari -------------*/
 
 body::-webkit-scrollbar {
-	width: 2px;
+	width: 15px;
 }
 
 body::-webkit-scrollbar-track {
-	background: #000000;
+	background: #FFFFFF;
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: #000000;
+	background-color: #F9F9F9;
 	border-radius: 6px;
-	border: 1px solid #F81B3F;
+	border: 1px solid #1ABC9C;
 }
 
 
@@ -137,7 +145,7 @@ body::-webkit-scrollbar-thumb {
 
 .blinking-underscore {
 	animation: blink 1s infinite;
-	color: #ff4d6d;
+	color: #1ABC9C;
 }
 
 
@@ -171,7 +179,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-btn {
-	border: 1px solid #ff4d6d;
+	border: 1px solid #1ABC9C;
 	padding: 10px 27px;
 	width: 150px;
 	text-align: center;
@@ -179,6 +187,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-btn:hover {
-	border-color: #d81159;
+	border-color: #FFA500;
 }
 
