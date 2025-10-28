@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 1% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 1% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 1% 11%;
+
+    --primary: 240 1% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 240 1% 11%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 240 1% 45%;
+
+    --accent: 240 1% 11%;
+    --accent-foreground: 0 0% 100%;
+
+    --gold: 240 1% 11%;
+    --gold-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 1% 85%;
+    --input: 0 0% 90%;
+    --ring: 240 1% 11%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 1% 11%;
+    --sidebar-primary: 240 1% 11%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 240 1% 11%;
+    --sidebar-border: 240 1% 85%;
+    --sidebar-ring: 240 1% 11%;
+
+    /* Custom design tokens */
+    --glow: 240 1% 11%;
+    --glow-soft: 240 1% 20%;
+    --luxury-gold: 240 1% 11%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(0 0% 100%) 0%,
+      hsl(0 0% 98%) 100%
+    );
+    --gradient-card: linear-gradient(
+      160deg,
+      hsl(0 0% 100% / 0.9) 0%,
+      hsl(0 0% 98% / 0.7) 100%
+    );
+    --gradient-glow: linear-gradient(
+      135deg,
+      hsl(240 1% 11% / 0.08) 0%,
+      hsl(240 1% 20% / 0.04) 100%
+    );
+
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(var(--glow) / 0.2);
+    --shadow-glow-lg: 0 0 50px hsl(var(--glow) / 0.25);
+    --shadow-elegant: 0 10px 40px -10px hsl(240 1% 11% / 0.15);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 30 15% 8%;
+    --foreground: 40 25% 90%;
+
+    --card: 30 12% 12%;
+    --card-foreground: 40 25% 90%;
+
+    --popover: 30 15% 10%;
+    --popover-foreground: 40 25% 90%;
+
+    --primary: 40 30% 88%;
+    --primary-foreground: 30 15% 8%;
+
+    --secondary: 30 10% 18%;
+    --secondary-foreground: 40 25% 90%;
+
+    --muted: 30 8% 22%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 45 70% 50%;
+    --accent-foreground: 30 15% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Red Hat Display", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: 300;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative inline-block transition-all duration-300;
+    @apply after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0;
+    @apply after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300;
+    @apply hover:after:scale-x-100 hover:after:origin-bottom-left;
+    @apply hover:text-accent;
+  }
+
+  .glow-text {
+    /* Glow effect removed */
+  }
+
+  .card-elegant {
+    background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+    transition: var(--transition-smooth);
+  }
+
+  .card-elegant:hover {
+    border-color: hsl(var(--accent) / 0.5);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+
+  .card-elegant:hover h2 {
+    color: hsl(var(--accent));
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.3);
+  }
+
+  .tech-grid {
+    background-image: linear-gradient(
+        rgba(218, 219, 236, 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(218, 219, 236, 0.5) 1px, transparent 1px);
+    background-size: 50px 50px, 50px 50px;
+    background-position: 0 0, 0 0;
+  }
+
+  .back-home-btn:hover {
+    background: transparent !important;
+  }
+
+  .back-home-btn:hover span {
+    color: hsl(var(--accent));
+    text-shadow: 0 0 10px hsl(var(--accent) / 0.5);
+  }
+}
+
+.home-link {
+  color: hsl(185, 69%, 42%);
+  transition: color 0.3s ease;
+}
+
+.home-link:hover {
+  color: rgb(165, 188, 198);
+  text-decoration: underline;
+}
