@@ -7,13 +7,6 @@ const SystemDesign = () => {
     <div className="min-h-screen tech-grid">
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6">
         <div className="max-w-4xl mx-auto py-12">
-          <Link to="/journal">
-            <Button variant="ghost" size="sm" className="mb-8 back-home-btn">
-              <ArrowLeft className="mr-2" />
-              <span>Back to Journal</span>
-            </Button>
-          </Link>
-
           <article className="prose prose-lg max-w-none">
             <h1 className="text-4xl md:text-5xl font-serif mb-4">
               Crafting My Purpose
