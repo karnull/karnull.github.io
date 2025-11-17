@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Code2, Users, BookOpen, Terminal, Bird } from "lucide-react";
+import { Code2, Users, BookOpen, Terminal, BrainCircuit } from "lucide-react";
+
+import pdfHaemograph from "../assets/Completion_letter_Haemograph.pdf";
 
 const Index = () => {
   const navButtons = [
@@ -17,9 +19,9 @@ const Index = () => {
       description: "Engagement & Impact",
     },
     {
-      title: "Rosella",
-      path: "/projectx",
-      icon: Bird,
+      title: "OpenNetics",
+      path: "https://github.com/OpenNetics",
+      icon: BrainCircuit,
       description: "Current Focus",
     },
     {
@@ -89,7 +91,7 @@ const Index = () => {
                 rheometer device. A detailed summary of my work can be found in
                 this{" "}
                 <a
-                  href="src/assets/Completion_letter_Haemograph.pdf"
+                  href={pdfHaemograph}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="home-link text-accent"
