@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import movRecording from "../assets/dev_env.mp4";
+
 const Dotfiles = () => {
   const systemSpecs = [
     {
@@ -38,13 +40,6 @@ const Dotfiles = () => {
     <div className="min-h-screen tech-grid">
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6">
         <div className="max-w-6xl mx-auto py-12">
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="mb-8 back-home-btn">
-              <ArrowLeft className="mr-2" />
-              <span>Back to Home</span>
-            </Button>
-          </Link>
-
           <div className="mb-16 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-serif mb-4 glow-text">
               Dotfiles
@@ -75,7 +70,7 @@ const Dotfiles = () => {
           <div className="card-elegant rounded-lg p-8 mb-16 animate-fade-in-up">
             <h2 className="text-2xl font-serif mb-6">Configuration Preview</h2>
             <div className="bg-secondary/50 rounded-lg overflow-hidden border border-border/50">
-              <video className="w-full" controls src="/src/assets/dev_env.mp4">
+              <video className="w-full" controls src={movRecording}>
                 Your browser does not support the video tag.
               </video>
             </div>

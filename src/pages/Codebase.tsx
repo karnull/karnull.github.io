@@ -11,6 +11,20 @@ const Codebase = () => {
           name: "Hobby",
           projects: [
             {
+              name: "OpenNetics - Gesture Tracker",
+              description:
+                "Tool to visualise serial read and record gestures for OpenNetics development.",
+              tech: ["OpenNetics", "Python", "PySlide", "QT", "pandas", "scipy", "numpy"],
+              link: "https://github.com/OpenNetics/Gesture-Tracker",
+            },
+            {
+              name: "Outfit Generator",
+              description:
+                "Pick right outfit for the occasion",
+              tech: ["Python" ],
+              link: "https://github.com/karshosphere/outfit-generator",
+            },
+            {
               name: "gun",
               description:
                 "Tool to unify build, run, and test commands across multiple programming languages.",
@@ -381,13 +395,6 @@ const Codebase = () => {
     <div className="min-h-screen tech-grid">
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6">
         <div className="max-w-6xl mx-auto py-12">
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="mb-8 back-home-btn">
-              <ArrowLeft className="mr-2" />
-              <span>Back to Home</span>
-            </Button>
-          </Link>
-
           <div className="mb-16 animate-fade-in-up flex justify-between items-start gap-8">
             <div>
               <h1 className="text-5xl md:text-6xl font-serif mb-4 glow-text">

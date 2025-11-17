@@ -3,16 +3,28 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import imgGreekClub1 from "../assets/GreekClub/committee1.jpg";
+import imgGreekClub2 from "../assets/GreekClub/IMG_3497.png";
+import imgGreekClub3 from "../assets/GreekClub/IMG_3503.png";
+import imgGreekClub4 from "../assets/GreekClub/IMG_3578.png";
+import imgIn2Science1 from "../assets/In2Science/finalist.png";
+import imgIn2Science2 from "../assets/In2Science/group.jpg";
+import imgIn2Science3 from "../assets/In2Science/student.jpg";
+import imgRoundSquare1 from "../assets/RoundSquare/DSC_0744.jpg";
+import imgRoundSquare2 from "../assets/RoundSquare/IMG_20180406_100611.jpg";
+import imgRoundSquare3 from "../assets/RoundSquare/IMG_20180409_110537.jpg";
+import imgRoundSquare4 from "../assets/RoundSquare/IMG_3408.jpg";
+import imgRoundSquare5 from "../assets/RoundSquare/IMG_3777.jpg";
+import imgRoundSquare6 from "../assets/RoundSquare/IMG_7347.jpg";
+import imgRoundSquare7 from "../assets/RoundSquare/m2.jpg";
+import imgRoundSquare8 from "../assets/RoundSquare/newspaper.png";
+import imgRoundSquare9 from "../assets/RoundSquare/thumbnail_IMG_0365.jpg";
+
 const Community = () => {
   const cards = [
     {
       title: "Swinburne Hellenic Society",
-      images: [
-        "src/assets/GreekClub/committee1.jpg",
-        "src/assets/GreekClub/IMG_3497.png",
-        "src/assets/GreekClub/IMG_3503.png",
-        "src/assets/GreekClub/IMG_3578.png",
-      ],
+      images: [imgGreekClub1, imgGreekClub2, imgGreekClub3, imgGreekClub4],
       content: (
         <>
           Having a passion for exploring new cultures and traditions, I was an
@@ -53,11 +65,7 @@ const Community = () => {
     },
     {
       title: "In2Science",
-      images: [
-        "src/assets/In2Science/finalist.png",
-        "src/assets/In2Science/group.jpg",
-        "src/assets/In2Science/student.jpg",
-      ],
+      images: [imgIn2Science1, imgIn2Science2, imgIn2Science3],
       content: (
         <>
           I have always been passionate about math and I believe that anyone can
@@ -122,15 +130,15 @@ const Community = () => {
     {
       title: "Round Square: Eye Camp",
       images: [
-        "src/assets/RoundSquare/DSC_0744.JPG",
-        "src/assets/RoundSquare/IMG_20180406_100611.jpg",
-        "src/assets/RoundSquare/IMG_20180409_110537.jpg",
-        "src/assets/RoundSquare/IMG_3408.JPG",
-        "src/assets/RoundSquare/IMG_3777.JPG",
-        "src/assets/RoundSquare/IMG_7347.JPG",
-        "src/assets/RoundSquare/m2.jpg",
-        "src/assets/RoundSquare/newspaper.png",
-        "src/assets/RoundSquare/thumbnail_IMG_0365.jpg",
+        imgRoundSquare1,
+        imgRoundSquare2,
+        imgRoundSquare3,
+        imgRoundSquare4,
+        imgRoundSquare5,
+        imgRoundSquare6,
+        imgRoundSquare7,
+        imgRoundSquare8,
+        imgRoundSquare9,
       ],
       content: (
         <>
@@ -186,13 +194,6 @@ const Community = () => {
     <div className="min-h-screen tech-grid">
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6">
         <div className="max-w-4xl mx-auto py-12">
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="mb-8 back-home-btn">
-              <ArrowLeft className="mr-2" />
-              <span>Back to Home</span>
-            </Button>
-          </Link>
-
           <div className="mb-16 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-serif mb-4 glow-text">
               Community

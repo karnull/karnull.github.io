@@ -26,13 +26,6 @@ const Journal = () => {
     <div className="min-h-screen tech-grid">
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-secondary/20 p-6">
         <div className="max-w-5xl mx-auto py-12">
-          <Link to="/">
-            <Button variant="ghost" size="sm" className="mb-8 back-home-btn">
-              <ArrowLeft className="mr-2" />
-              <span>Back to Home</span>
-            </Button>
-          </Link>
-
           <div className="mb-16 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl font-serif mb-4 glow-text">
               Journal
