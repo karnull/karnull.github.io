@@ -1,189 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 1% 11%;
+    --background: 220 20% 4%;
+    --foreground: 60 9% 85%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 1% 11%;
+    --card: 220 15% 8%;
+    --card-foreground: 60 9% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 1% 11%;
+    --popover: 220 15% 8%;
+    --popover-foreground: 60 9% 85%;
 
-    --primary: 240 1% 11%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 54 100% 50%;
+    --primary-foreground: 220 20% 4%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 240 1% 11%;
+    --secondary: 185 100% 50%;
+    --secondary-foreground: 220 20% 4%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 240 1% 45%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 240 1% 11%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 330 100% 60%;
+    --accent-foreground: 220 20% 4%;
 
-    --gold: 240 1% 11%;
-    --gold-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --border: 54 100% 50%;
+    --input: 220 15% 20%;
+    --ring: 54 100% 50%;
 
-    --border: 240 1% 85%;
-    --input: 0 0% 90%;
-    --ring: 240 1% 11%;
+    --radius: 0.25rem;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 1% 11%;
-    --sidebar-primary: 240 1% 11%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 240 1% 11%;
-    --sidebar-border: 240 1% 85%;
-    --sidebar-ring: 240 1% 11%;
-
-    /* Custom design tokens */
-    --glow: 240 1% 11%;
-    --glow-soft: 240 1% 20%;
-    --luxury-gold: 240 1% 11%;
-
-    /* Gradients */
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(0 0% 100%) 0%,
-      hsl(0 0% 98%) 100%
-    );
-    --gradient-card: linear-gradient(
-      160deg,
-      hsl(0 0% 100% / 0.9) 0%,
-      hsl(0 0% 98% / 0.7) 100%
-    );
-    --gradient-glow: linear-gradient(
-      135deg,
-      hsl(240 1% 11% / 0.08) 0%,
-      hsl(240 1% 20% / 0.04) 100%
-    );
-
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--glow) / 0.2);
-    --shadow-glow-lg: 0 0 50px hsl(var(--glow) / 0.25);
-    --shadow-elegant: 0 10px 40px -10px hsl(240 1% 11% / 0.15);
-
-    /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Custom cyberpunk tokens */
+    --glow-primary: 0 0 20px hsl(54 100% 50% / 0.5);
+    --glow-secondary: 0 0 20px hsl(185 100% 50% / 0.5);
+    --glow-accent: 0 0 20px hsl(330 100% 60% / 0.5);
+    --scanline-opacity: 0.03;
   }
 
   .dark {
-    --background: 30 15% 8%;
-    --foreground: 40 25% 90%;
-
-    --card: 30 12% 12%;
-    --card-foreground: 40 25% 90%;
-
-    --popover: 30 15% 10%;
-    --popover-foreground: 40 25% 90%;
-
-    --primary: 40 30% 88%;
-    --primary-foreground: 30 15% 8%;
-
-    --secondary: 30 10% 18%;
-    --secondary-foreground: 40 25% 90%;
-
-    --muted: 30 8% 22%;
-    --muted-foreground: 40 10% 60%;
-
-    --accent: 45 70% 50%;
-    --accent-foreground: 30 15% 8%;
+    --background: 220 20% 4%;
+    --foreground: 60 9% 85%;
   }
 }
 
 @layer base {
+  html {
+    zoom: 1;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
   * {
     @apply border-border;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 2v8M12 14v8M2 12h8M14 12h8' stroke='%2300ff00' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='3' stroke='%23ffff00' stroke-width='1'/%3E%3C/svg%3E") 12 12, crosshair;
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: "Red Hat Display", sans-serif;
+    @apply bg-background text-foreground font-mono antialiased;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(var(--primary) / var(--scanline-opacity)) 2px,
+      hsl(var(--primary) / var(--scanline-opacity)) 4px
+    );
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Red Hat Display", sans-serif;
-    font-weight: 300;
+  /* Cyberpunk scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    border-left: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.6) 0%,
+      hsl(var(--primary) / 0.3) 50%,
+      hsl(var(--primary) / 0.6) 100%
+    );
+    border-left: 1px solid hsl(var(--primary) / 0.8);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.9) 0%,
+      hsl(var(--primary) / 0.5) 50%,
+      hsl(var(--primary) / 0.9) 100%
+    );
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.5);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--background));
+  }
+
+  a, button, [role="button"], input, textarea, select, label {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M12 2v8M12 14v8M2 12h8M14 12h8' stroke='%23ffff00' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' stroke='%2300ff00' stroke-width='1.5' fill='%2300ff00' fill-opacity='0.2'/%3E%3C/svg%3E") 12 12, pointer;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
   }
 }
 
 @layer components {
-  .nav-link {
-    @apply relative inline-block transition-all duration-300;
-    @apply after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:bottom-0 after:left-0;
-    @apply after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300;
-    @apply hover:after:scale-x-100 hover:after:origin-bottom-left;
-    @apply hover:text-accent;
+  .cyber-box {
+    @apply relative border border-primary/30 bg-card p-6 transition-all duration-300;
+    @apply hover:border-primary hover:bg-primary/5;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 12px) 0,
+      100% 12px,
+      100% 100%,
+      12px 100%,
+      0 calc(100% - 12px)
+    );
   }
 
-  .glow-text {
-    /* Glow effect removed */
+  .cyber-box::before {
+    content: "";
+    @apply absolute top-0 left-0 w-3 h-3 border-t border-l border-primary/50;
   }
 
-  .card-elegant {
-    background: var(--gradient-card);
-    backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--border));
-    transition: var(--transition-smooth);
+  .cyber-box::after {
+    content: "";
+    @apply absolute bottom-0 right-0 w-3 h-3 border-b border-r border-primary/50;
   }
 
-  .card-elegant:hover {
-    border-color: hsl(var(--accent) / 0.5);
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
+  .cyber-box:hover {
+    box-shadow: var(--glow-primary);
   }
 
-  .card-elegant:hover h2 {
+  .cyber-heading {
+    @apply font-display uppercase tracking-widest;
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .glitch {
+    position: relative;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-1 2s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    color: hsl(var(--secondary));
+  }
+
+  .glitch::after {
+    animation: glitch-2 2s infinite linear alternate-reverse;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
     color: hsl(var(--accent));
-    text-shadow: 0 0 10px hsl(var(--accent) / 0.3);
-  }
-
-  .tech-grid {
-    background-image: linear-gradient(
-        rgba(218, 219, 236, 0.5) 1px,
-        transparent 1px
-      ),
-      linear-gradient(90deg, rgba(218, 219, 236, 0.5) 1px, transparent 1px);
-    background-size: 50px 50px, 50px 50px;
-    background-position: 0 0, 0 0;
-  }
-
-  .back-home-btn:hover {
-    background: transparent !important;
-  }
-
-  .back-home-btn:hover span {
-    color: hsl(var(--accent));
-    text-shadow: 0 0 10px hsl(var(--accent) / 0.5);
   }
 }
 
-.home-link {
-  color: hsl(185, 69%, 42%);
-  transition: color 0.3s ease;
+@layer utilities {
+  .text-glow-primary {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.7),
+      0 0 20px hsl(var(--primary) / 0.5), 0 0 30px hsl(var(--primary) / 0.3);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 10px hsl(var(--secondary) / 0.7),
+      0 0 20px hsl(var(--secondary) / 0.5);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.3),
+      inset 0 0 10px hsl(var(--primary) / 0.1);
+  }
 }
 
-.home-link:hover {
-  color: rgb(165, 188, 198);
-  text-decoration: underline;
+@keyframes glitch-1 {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
 }
+
+@keyframes glitch-2 {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(2px);
+  }
+  40% {
+    transform: translateX(-2px);
+  }
+  60% {
+    transform: translateX(1px);
+  }
+  80% {
+    transform: translateX(-1px);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  52% {
+    opacity: 1;
+  }
+  54% {
+    opacity: 0.9;
+  }
+  56% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6),
+      0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
