@@ -1,45 +1,59 @@
+import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Index from "./pages/Index";
-import Codebase from "./pages/Codebase";
-import Community from "./pages/Community";
-import Dotfiles from "./pages/Dotfiles";
-import PGP from "./pages/PGP";
-import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
+import AudioPlayer from "./components/AudioPlayer";
+import AssetPreloader from "./components/AssetPreloader";
+import backgroundMusic from "./assets/audio/background-music.mp3";
 
-import Journal from "./pages/Journal";
-import JournalDropout from "./pages/posts/dropout";
-import JournalMotivation from "./pages/posts/motivation";
-
-const queryClient = new QueryClient();
+const Index = lazy(() => import("./pages/Index"));
+const Background = lazy(() => import("./pages/Background"));
+const Codebase = lazy(() => import("./pages/Codebase"));
+const Community = lazy(() => import("./pages/Community"));
+const Opennetics = lazy(() => import("./pages/Opennetics"));
+const Certifications = lazy(() => import("./pages/Certifications"));
+const Journal = lazy(() => import("./pages/Journal"));
+const JournalEntry1 = lazy(() => import("./pages/JournalEntry1"));
+const JournalEntry2 = lazy(() => import("./pages/JournalEntry2"));
+const Dotfiles = lazy(() => import("./pages/Dotfiles"));
+const PGP = lazy(() => import("./pages/PGP"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Router>
+  <TooltipProvider>
+    <Toaster />
+    <Sonner />
+    <AudioPlayer src={backgroundMusic} />
+    <AssetPreloader />
+    <BrowserRouter>
+      <ScrollToTop />
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/background" element={<Background />} />
           <Route path="/codebase" element={<Codebase />} />
           <Route path="/community" element={<Community />} />
-
+          <Route path="/opennetics" element={<Opennetics />} />
+          <Route path="/certifications" element={<Certifications />} />
           <Route path="/journal" element={<Journal />} />
-          <Route path="/journal/dropout" element={<JournalDropout />} />
-          <Route path="/journal/motivation" element={<JournalMotivation />} />
-
+          <Route
+            path="/writing/withdrawing-from-grad-school"
+            element={<JournalEntry1 />}
+          />
+          <Route
+            path="/writing/automation-and-purpose"
+            element={<JournalEntry2 />}
+          />
           <Route path="/dotfiles" element={<Dotfiles />} />
           <Route path="/pgp" element={<PGP />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </Suspense>
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;

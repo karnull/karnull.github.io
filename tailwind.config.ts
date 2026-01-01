@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -13,6 +14,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        mono: ["JetBrains Mono", "monospace"],
+        display: ["Orbitron", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -39,10 +44,6 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          foreground: "hsl(var(--gold-foreground))",
-        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -51,20 +52,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
-      },
-      fontFamily: {
-        sans: ['Red Hat Display', 'sans-serif'],
-        serif: ['Red Hat Display', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,60 +60,37 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
-        "glow-pulse": {
+        flicker: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
+          "52%": { opacity: "1" },
+          "54%": { opacity: "0.9" },
+          "56%": { opacity: "1" },
+        },
+        "pulse-glow": {
           "0%, 100%": {
-            opacity: "1",
-            filter: "drop-shadow(0 0 20px hsl(var(--glow) / 0.5))",
+            boxShadow: "0 0 5px hsl(var(--primary) / 0.3)",
           },
           "50%": {
-            opacity: "0.8",
-            filter: "drop-shadow(0 0 30px hsl(var(--glow) / 0.7))",
-          },
-        },
-        "fade-in-up": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
-        },
-        "slide-in": {
-          "0%": {
-            opacity: "0",
-            transform: "translateX(-20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateX(0)",
+            boxShadow: "0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--primary) / 0.4)",
           },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
-        "fade-in-up": "fade-in-up 0.6s ease-out",
-        "slide-in": "slide-in 0.5s ease-out",
+        flicker: "flicker 3s infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "glitch-bg": "glitch-bg 5s ease-in-out infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
