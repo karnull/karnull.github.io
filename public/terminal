@@ -1,0 +1,169 @@
+#!/usr/bin/env bash
+
+#- local functions ---------------------------------------------------------------------------------
+
+colour_line() {
+echo "\
+\033[30m󰝤󰝤󰝤 \033[31m󰝤󰝤󰝤 \033[32m󰝤󰝤󰝤 \033[33m󰝤󰝤󰝤 \033[34m󰝤󰝤󰝤 \033[35m󰝤󰝤󰝤 \033[36m󰝤󰝤󰝤 \033[37m󰝤󰝤󰝤 \
+\033[30m󰝤󰝤󰝤 \033[31m󰝤󰝤󰝤 \033[32m󰝤󰝤󰝤 \033[33m󰝤󰝤󰝤 \033[34m󰝤󰝤󰝤 \033[35m󰝤󰝤󰝤 \033[36m󰝤󰝤󰝤 \033[37m󰝤󰝤󰝤 \
+\033[30m󰝤󰝤󰝤 \033[31m󰝤󰝤󰝤 \033[32m󰝤󰝤󰝤 \033[33m󰝤󰝤󰝤 \033[34m󰝤󰝤󰝤 \033[35m󰝤󰝤󰝤 \033[36m󰝤󰝤󰝤 \033[37m󰝤󰝤󰝤 \
+"
+}
+
+#- banner ------------------------------------------------------------------------------------------
+
+clear
+colour_line
+echo "\
+   _    _   ______  _        _        ______      _    __  ______   ______   ______   _    _
+  | |  | | | |     | |      | |      / |  | \    | |  / / | |  | | | |  | \ / |      | |  | |
+  | |--| | | |---- | |   _  | |   _  | |  | |    | |-< <  | |__| | | |__| | '------. | |--| |
+  |_|  |_| |_|____ |_|__|_| |_|__|_| \_|__|_/    |_|  \_\ |_|  |_| |_|  \_\  ____|_/ |_|  |_|
+"
+colour_line
+
+
+#- local defines -----------------------------------------------------------------------------------
+
+list_commands="List Commands:
+   list systems                List all configuration options.
+   list scripts                List all available scripts.
+   list configs                List all tools supported with a configuration."
+
+install_commands="Install Services:
+   add script {script, ...}    Install the specified scripts.
+   add system (system)         Install the specified configuration from the defined list.
+   add config {tool, ...}      Install configurations for the specified tool."
+
+
+misc_commands="General Commands:
+   whoami                      Logged in information
+   about                       Display all information about the system.
+   help                        Show all available commands.
+   quit                        Exit the application."
+
+
+#---------------------------------------------------------------------------------------------------
+
+while :; do
+    printf '\n\033[33m> \033[32m'
+    IFS= read -r user_input < /dev/tty || break
+    printf '\033[0m'
+
+    set -- $user_input
+    cmd=$1
+    sub=$2
+
+    case $cmd in
+        hi|hello|hey)
+            printf 'hello there :)\n'
+            ;;
+
+        whoami)
+            u=$(whoami)
+            h=${HOSTNAME:-$(hostname 2>/dev/null)}
+
+            # Find a local IPv4 address (non-loopback)
+            local_ip=$(
+            hostname -I 2>/dev/null | awk '{print $1}' |
+                sed -n '1p' |
+                grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' && exit
+
+            # iproute2 (Linux)
+            ip -4 addr show scope global 2>/dev/null |
+                awk '/inet /{print $2}' | cut -d/ -f1 | head -n1 && exit
+
+            # ifconfig (macOS/BSD/Linux BusyBox)
+            ifconfig 2>/dev/null |
+                awk '/inet / && $2 != "127.0.0.1" {print $2; exit}'
+
+            )
+
+            # Get public IP via common endpoints (works if outbound HTTP/HTTPS allowed)
+            public_ip=$(
+                (curl -fsS https://ifconfig.me ||
+                    curl -fsS https://api.ipify.org ||
+                    wget -qO- https://ifconfig.me ||
+                    fetch -qo- https://ifconfig.me) 2>/dev/null
+                )
+
+            # Fallbacks if detection failed
+            [ -n "$local_ip" ] || local_ip=unknown
+            [ -n "$public_ip" ] || public_ip=unknown
+
+            printf 'logged in as %s@%s with local network: [%s] and global [%s]\n' \
+            "$u" "$h" "$local_ip" "$public_ip"
+            ;;
+
+        x|quit|exit)
+            clear
+            colour_line
+            printf '\nGoodbye Karsh...\n'
+            sleep 0.5 2>/dev/null || :
+            break
+            ;;
+
+        help|\?)
+            echo "$misc_commands\n\n$list_commands\n\n$install_commands"
+            ;;
+
+        clear)
+            clear
+            colour_line
+            ;;
+
+        list|ls)
+            if [ -z "$sub" ]; then
+                printf '%s\n' "$list_commands"
+            else
+                case $sub in
+                    system|systems|sys)
+                        printf 'all possible system install options\n'
+                        ;;
+                    script|scripts)
+                        printf 'all possible script install options\n'
+                        ;;
+                    config|configs)
+                        printf 'all possible config install options\n'
+                        ;;
+                    *)
+                        printf 'Error: wrong input "%s"\n\n' "$sub"
+                        printf '%s\n' "$list_commands"
+                        ;;
+                esac
+            fi
+            ;;
+
+        add|install)
+            if [ -z "$sub" ]; then
+                printf '%s\n' "$install_commands"
+            else
+                shift 2
+                rest=$*
+                case $sub in
+                    system|systems)
+                        printf 'call system_install()\n'
+                        printf 'with args: %s\n' "${rest:-<none>}"
+                        ;;
+                    script|scripts)
+                        printf 'call script_install()\n'
+                        printf 'with args: %s\n' "${rest:-<none>}"
+                        ;;
+                    config|configs)
+                        printf 'call config_install()\n'
+                        printf 'with args: %s\n' "${rest:-<none>}"
+                        ;;
+                    *)
+                        printf 'Error: wrong input "%s"\n\n' "$sub"
+                        printf '%s\n' "$install_commands"
+                        ;;
+                esac
+            fi
+            ;;
+
+        *)
+            printf 'Invalid command [?]\n'
+            ;;
+    esac
+done
+
