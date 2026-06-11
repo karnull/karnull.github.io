@@ -353,7 +353,7 @@ const Codebase = () => {
   };
 
   return (
-    <PageLayout title="Projects" wide>
+    <PageLayout title="Projects" fluid>
       <div className="space-y-8">
         <p className="text-foreground/70">
           Repository of tools, scripts, and contributions to the open-source
@@ -388,7 +388,7 @@ const Codebase = () => {
               </CollapsibleTrigger>
 
               <CollapsibleContent>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="grid gap-6 [grid-template-columns:repeat(auto-fill,minmax(20rem,1fr))]">
                   {posts.map((post) => (
                     <CodePostCard key={post.heading} post={post} />
                   ))}
