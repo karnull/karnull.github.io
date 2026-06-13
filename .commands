@@ -1,0 +1,11 @@
+
+-- gh:karnull/switchboard.nvim
+
+return {
+    commands = {
+        run    = 'devcontainer exec npm run dev',
+        setup  = 'devcontainer exec npm install'
+        update = 'devcontainer exec npm update'
+    },
+}
+
