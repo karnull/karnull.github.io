@@ -22,6 +22,7 @@ import imgRoundSquare9 from "@/assets/community/RoundSquare/thumbnail_IMG_0365.j
 const samplePosts = [
   {
     id: 1,
+    year: "2024-25",
     heading: "Swinburne Hellenic Society",
     paragraph: [
       "I joined the Swinburne Hellenic Society in the final years of university out of a genuine interest in culture, community, and meeting people outside my usual circles. Over time, I moved from being a general member to the committee, and eventually served as Treasurer. Being trusted with that role, despite not coming from a Greek background, meant a lot to me.",
@@ -32,9 +33,10 @@ const samplePosts = [
   },
   {
     id: 2,
+    year: "2022-23",
     heading: "In2Science",
     paragraph: [
-      "I volunteered with In2Science in 2022 and 2023 as a maths mentor, working with Year 10 students and helping them build confidence around ideas that often feel more intimidating than they need to be. Maths has always mattered to me, not just as a subject, but as a way of thinking clearly and making sense of the world.",
+      "I volunteered with In2Science as a maths mentor, working with Year 10 students and helping them build confidence around ideas that often feel more intimidating than they need to be. Maths has always mattered to me, not just as a subject, but as a way of thinking clearly and making sense of the world.",
       "A lot of students grow up seeing maths as something dry or inaccessible. In contrast, to me, it is closer to a language of logic than a collection of rules, and that shift in perspective can make a real difference. Mentoring gave me the chance to share that view and help students see that STEM is not reserved for a certain type of person.",
       "I was nominated for Best Mentor and recognised as a finalist for Best Communicator during my two years with In2Science.",
     ],
@@ -42,6 +44,7 @@ const samplePosts = [
   },
   {
     id: 3,
+    year: "2020-21",
     heading: "Sweebs Club",
     paragraph: [
       "I started Sweebs during the COVID years at university, when a lot of student life felt distant and half-formed. The original idea was simple: a space built around shared interest in Asian animated media, including Japanese and Korean comics, animation, and music. But very quickly it became clear that the real need was not just for a niche club — it was for connection.",
@@ -52,6 +55,7 @@ const samplePosts = [
   },
   {
     id: 4,
+    year: 2018,
     heading: "Round Square: Eye Camp",
     paragraph: [
       "In my final year of high school, I took part in a Round Square volunteer programme in India focused on eye health in under-served communities. Before the trip, we were trained by professionals to carry out basic eye tests, and once there we helped raise awareness, assess vision, and provide glasses to people who otherwise had little access to that kind of care.",
@@ -76,6 +80,7 @@ interface PostCardProps {
   heading: string;
   paragraph: string[];
   images: string[];
+  year: number;
 }
 
 const parseParagraph = (paragraph: string[]) => {
@@ -102,7 +107,7 @@ const parseParagraph = (paragraph: string[]) => {
   ));
 };
 
-const PostCard = ({ heading, paragraph, images }: PostCardProps) => {
+const PostCard = ({ heading, paragraph, images, year }: PostCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const validImages = images.filter((img) => img && img !== "");
 
@@ -115,10 +120,15 @@ const PostCard = ({ heading, paragraph, images }: PostCardProps) => {
   }, [validImages.length]);
 
   return (
-    <div className="cyber-box border-primary/40 bg-card/70 mb-6">
-      <h3 className="text-primary font-display text-xl uppercase tracking-wider mb-4 text-glow-primary">
-        {heading}
-      </h3>
+    <div className="cyber-box border-primary/40 bg-card/70 mb-6 break-inside-avoid">
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <h3 className="text-primary font-display text-xl uppercase tracking-wider text-glow-primary">
+          {heading}
+        </h3>
+        <span className="text-foreground/60 text-xs font-mono uppercase tracking-widest shrink-0">
+          {year}
+        </span>
+      </div>
       <p className="text-foreground/70 font-mono text-sm leading-relaxed mb-6">
         {parseParagraph(paragraph)}
       </p>
@@ -157,7 +167,7 @@ const PostCard = ({ heading, paragraph, images }: PostCardProps) => {
 
 const Community = () => {
   return (
-    <PageLayout title="community">
+    <PageLayout title="community" fluid innerMaxWidth="max-w-[100rem]">
       <div className="space-y-8">
         <p className="text-foreground/70">
           A lot of the most meaningful parts of my life so far have happened
@@ -165,13 +175,14 @@ const Community = () => {
           communities feel more alive.
         </p>
 
-        <div className="mt-8">
+        <div className="mt-8 [columns:36rem_2] gap-6">
           {samplePosts.map((post) => (
             <PostCard
               key={post.id}
               heading={post.heading}
               paragraph={post.paragraph}
               images={post.images}
+              year={post.year}
             />
           ))}
         </div>
