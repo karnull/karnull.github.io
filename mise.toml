@@ -1,0 +1,7 @@
+[tools]
+node = "latest"
+npm = "latest"
+
+[shell_alias]
+run = 'npm run dev'
+debug = 'npm audit fix --force'
