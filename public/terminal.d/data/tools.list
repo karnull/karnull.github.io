@@ -1,0 +1,18 @@
+# terminal.d/data/tools.list
+# The toolchain karsh.page/dotfiles runs on.
+# name | binary | brew formula | apt package | pacman package | description
+neovim     | nvim      | neovim     | neovim       | neovim     | modal editor, the whole workflow
+tmux       | tmux      | tmux       | tmux         | tmux       | session multiplexer
+lazygit    | lazygit   | lazygit    | lazygit      | lazygit    | git TUI
+alacritty  | alacritty | alacritty  | alacritty    | alacritty  | GPU terminal emulator
+starship   | starship  | starship   | starship     | starship   | cross-shell prompt
+fzf        | fzf       | fzf        | fzf          | fzf        | fuzzy finder
+ripgrep    | rg        | ripgrep    | ripgrep      | ripgrep    | fast recursive grep
+fd         | fd        | fd         | fd-find      | fd         | fast find
+bat        | bat       | bat        | bat          | bat        | cat with syntax highlighting
+btop       | btop      | btop       | btop         | btop       | resource monitor
+bandwhich  | bandwhich | bandwhich  | bandwhich    | bandwhich  | per-process bandwidth monitor
+tailscale  | tailscale | tailscale  | tailscale    | tailscale  | mesh VPN
+docker     | docker    | docker     | docker.io    | docker     | containers
+git        | git       | git        | git          | git        | version control
+jq         | jq        | jq         | jq           | jq         | JSON processor

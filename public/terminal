@@ -1,169 +1,169 @@
-#!/usr/bin/env bash
+#!/bin/sh
+#
+#   curl -sL karsh.page/terminal | sh
+#
+# The front door. This file stays small on purpose: it bootstraps a few
+# libraries and hands off to the modules under karsh.page/terminal.d, so
+# adding a feature never means growing the thing people pipe into sh.
+#
+#   terminal.d/lib/*.sh       drawing, fetching, host detection
+#   terminal.d/modules/*.sh   one file per screen
+#   terminal.d/data/*.list    catalogs the modules read
+#
+# Environment:
+#   TERMINAL_BASE=http://localhost:8080   point at a local `npm run dev`
+#   TERMINAL_LOCAL=./public/terminal.d    run straight from a checkout
+#   TERMINAL_DRY_RUN=1                    print actions, change nothing
+#   TERMINAL_ASCII=1                      no nerd-font glyphs
 
-#- local functions ---------------------------------------------------------------------------------
+set -u
 
-colour_line() {
-echo "\
-\033[30m󰝤󰝤󰝤 \033[31m󰝤󰝤󰝤 \033[32m󰝤󰝤󰝤 \033[33m󰝤󰝤󰝤 \033[34m󰝤󰝤󰝤 \033[35m󰝤󰝤󰝤 \033[36m󰝤󰝤󰝤 \033[37m󰝤󰝤󰝤 \
-\033[30m󰝤󰝤󰝤 \033[31m󰝤󰝤󰝤 \033[32m󰝤󰝤󰝤 \033[33m󰝤󰝤󰝤 \033[34m󰝤󰝤󰝤 \033[35m󰝤󰝤󰝤 \033[36m󰝤󰝤󰝤 \033[37m󰝤󰝤󰝤 \
-\033[30m󰝤󰝤󰝤 \033[31m󰝤󰝤󰝤 \033[32m󰝤󰝤󰝤 \033[33m󰝤󰝤󰝤 \033[34m󰝤󰝤󰝤 \033[35m󰝤󰝤󰝤 \033[36m󰝤󰝤󰝤 \033[37m󰝤󰝤󰝤 \
-"
+TUI_VERSION="2.0.0"
+TUI_BASE="${TERMINAL_BASE:-https://karsh.page}"
+TUI_ROOT="$TUI_BASE/terminal.d"
+TUI_LOCAL="${TERMINAL_LOCAL:-}"
+TUI_EXIT=0
+
+# Running from a checkout? Then prefer the files next to this script.
+if [ -z "$TUI_LOCAL" ] && [ -f "${0:-}" ] && [ -f "$(dirname -- "$0")/terminal.d/lib/ui.sh" ]; then
+    TUI_LOCAL="$(dirname -- "$0")/terminal.d"
+fi
+
+TUI_CACHE="${TMPDIR:-/tmp}/karsh-terminal.$$"
+mkdir -p "$TUI_CACHE" 2>/dev/null || {
+    echo "terminal: cannot create cache dir" >&2
+    exit 1
 }
 
-#- banner ------------------------------------------------------------------------------------------
+TUI_STTY=''
+[ -c /dev/tty ] && TUI_STTY=$( { stty -g < /dev/tty; } 2>/dev/null )
 
-clear
-colour_line
-echo "\
-   _    _   ______  _        _        ______      _    __  ______   ______   ______   _    _
-  | |  | | | |     | |      | |      / |  | \    | |  / / | |  | | | |  | \ / |      | |  | |
-  | |--| | | |---- | |   _  | |   _  | |  | |    | |-< <  | |__| | | |__| | '------. | |--| |
-  |_|  |_| |_|____ |_|__|_| |_|__|_| \_|__|_/    |_|  \_\ |_|  |_| |_|  \_\  ____|_/ |_|  |_|
-"
-colour_line
+tui_cleanup() {
+    [ -n "$TUI_STTY" ] && { stty "$TUI_STTY" < /dev/tty; } 2>/dev/null
+    printf '\033[?25h'
+    rm -rf "$TUI_CACHE" 2>/dev/null
+}
+trap 'tui_cleanup' EXIT
+trap 'tui_cleanup; exit 130' INT
+trap 'tui_cleanup; exit 143' TERM
 
+#- bootstrap ----------------------------------------------------------------
 
-#- local defines -----------------------------------------------------------------------------------
+tui_boot_fetch() {
+    if command -v curl >/dev/null 2>&1; then
+        curl -fsSL --max-time 20 -o "$2" "$1" 2>/dev/null
+    elif command -v wget >/dev/null 2>&1; then
+        wget -qO "$2" --timeout=20 "$1" 2>/dev/null
+    elif command -v fetch >/dev/null 2>&1; then
+        fetch -qo "$2" "$1" 2>/dev/null
+    else
+        return 1
+    fi
+}
 
-list_commands="List Commands:
-   list systems                List all configuration options.
-   list scripts                List all available scripts.
-   list configs                List all tools supported with a configuration."
+tui_boot() {
+    for _lib in ui net sys; do
+        _dst="$TUI_CACHE/lib_$_lib.sh"
+        if [ -n "$TUI_LOCAL" ] && [ -f "$TUI_LOCAL/lib/$_lib.sh" ]; then
+            cp "$TUI_LOCAL/lib/$_lib.sh" "$_dst" 2>/dev/null
+        else
+            tui_boot_fetch "$TUI_ROOT/lib/$_lib.sh" "$_dst"
+        fi
+        if [ ! -s "$_dst" ]; then
+            echo "terminal: could not load lib/$_lib.sh from $TUI_ROOT" >&2
+            echo "terminal: check your connection, or set TERMINAL_BASE" >&2
+            exit 1
+        fi
+        # shellcheck disable=SC1090
+        . "$_dst" || exit 1
+    done
+}
 
-install_commands="Install Services:
-   add script {script, ...}    Install the specified scripts.
-   add system (system)         Install the specified configuration from the defined list.
-   add config {tool, ...}      Install configurations for the specified tool."
+tui_boot
 
+#- headless -----------------------------------------------------------------
 
-misc_commands="General Commands:
-   whoami                      Logged in information
-   about                       Display all information about the system.
-   help                        Show all available commands.
-   quit                        Exit the application."
+tui_interactive() {
+    [ -c /dev/tty ] || return 1
+    (: < /dev/tty) 2>/dev/null || return 1
+    return 0
+}
 
+tui_usage() {
+    cat <<USAGE
+karsh.page/terminal $TUI_VERSION
 
-#---------------------------------------------------------------------------------------------------
+  curl -sL $TUI_BASE/terminal | sh                    interactive
+  curl -sL $TUI_BASE/terminal | sh -s -- <command>    one shot
 
-while :; do
-    printf '\n\033[33m> \033[32m'
-    IFS= read -r user_input < /dev/tty || break
-    printf '\033[0m'
+commands
+  doctor                       toolchain report for this host
+  whoami                       session, host and network
+  card                         contact card and PGP fingerprint
+  colours                      terminal colour and font check
+  list <catalog>               tools | configs | scripts | projects
+  install <catalog> [name ...] install from a catalog
+  shell                        the command REPL
+  help                         this text
+USAGE
+}
 
-    set -- $user_input
-    cmd=$1
-    sub=$2
+if [ $# -gt 0 ]; then
+    _sub=$1
+    shift
+    case "$_sub" in
+        doctor)   net_module doctor  && doctor_report ;;
+        whoami)   net_module whoami  && whoami_report ;;
+        card)     net_module card    && card_report ;;
+        colours | colors) net_module colours && colours_report ;;
+        list)     net_module shell   && shell_list "${1:-}" ;;
+        install)  net_module install && install_cmd "$@" ;;
+        shell)    net_module shell   && shell_main ;;
+        menu)     : ;;
+        *)        tui_usage; exit 0 ;;
+    esac
+    [ "$_sub" != "menu" ] && exit 0
+fi
 
-    case $cmd in
-        hi|hello|hey)
-            printf 'hello there :)\n'
-            ;;
+if ! tui_interactive; then
+    # No terminal to talk to -- leave the card and go.
+    net_module card && card_report
+    printf '\n'
+    ui_note "no tty here, so the interface stayed home"
+    ui_note "run it with: curl -sL $TUI_BASE/terminal | sh"
+    exit 0
+fi
 
-        whoami)
-            u=$(whoami)
-            h=${HOSTNAME:-$(hostname 2>/dev/null)}
+#- menu ---------------------------------------------------------------------
 
-            # Find a local IPv4 address (non-loopback)
-            local_ip=$(
-            hostname -I 2>/dev/null | awk '{print $1}' |
-                sed -n '1p' |
-                grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' && exit
+while [ "$TUI_EXIT" -eq 0 ]; do
+    ui_banner
+    printf '\n'
 
-            # iproute2 (Linux)
-            ip -4 addr show scope global 2>/dev/null |
-                awk '/inet /{print $2}' | cut -d/ -f1 | head -n1 && exit
+    ui_menu "up/down or j/k move . enter select . q quit" \
+        "--|this machine|" \
+        "install|install|tools, configs and scripts" \
+        "doctor|doctor|what this host has and is missing" \
+        "colours|colours|terminal colour and font check" \
+        "--|karsh|" \
+        "codebase|codebase|browse the work, open or clone it" \
+        "card|card|contact card and PGP fingerprint" \
+        "--|session|" \
+        "whoami|whoami|session, host and network" \
+        "shell|shell|command REPL, for typists" \
+        "quit|quit|" || break
 
-            # ifconfig (macOS/BSD/Linux BusyBox)
-            ifconfig 2>/dev/null |
-                awk '/inet / && $2 != "127.0.0.1" {print $2; exit}'
-
-            )
-
-            # Get public IP via common endpoints (works if outbound HTTP/HTTPS allowed)
-            public_ip=$(
-                (curl -fsS https://ifconfig.me ||
-                    curl -fsS https://api.ipify.org ||
-                    wget -qO- https://ifconfig.me ||
-                    fetch -qo- https://ifconfig.me) 2>/dev/null
-                )
-
-            # Fallbacks if detection failed
-            [ -n "$local_ip" ] || local_ip=unknown
-            [ -n "$public_ip" ] || public_ip=unknown
-
-            printf 'logged in as %s@%s with local network: [%s] and global [%s]\n' \
-            "$u" "$h" "$local_ip" "$public_ip"
-            ;;
-
-        x|quit|exit)
-            clear
-            colour_line
-            printf '\nGoodbye Karsh...\n'
-            sleep 0.5 2>/dev/null || :
-            break
-            ;;
-
-        help|\?)
-            echo "$misc_commands\n\n$list_commands\n\n$install_commands"
-            ;;
-
-        clear)
-            clear
-            colour_line
-            ;;
-
-        list|ls)
-            if [ -z "$sub" ]; then
-                printf '%s\n' "$list_commands"
-            else
-                case $sub in
-                    system|systems|sys)
-                        printf 'all possible system install options\n'
-                        ;;
-                    script|scripts)
-                        printf 'all possible script install options\n'
-                        ;;
-                    config|configs)
-                        printf 'all possible config install options\n'
-                        ;;
-                    *)
-                        printf 'Error: wrong input "%s"\n\n' "$sub"
-                        printf '%s\n' "$list_commands"
-                        ;;
-                esac
-            fi
-            ;;
-
-        add|install)
-            if [ -z "$sub" ]; then
-                printf '%s\n' "$install_commands"
-            else
-                shift 2
-                rest=$*
-                case $sub in
-                    system|systems)
-                        printf 'call system_install()\n'
-                        printf 'with args: %s\n' "${rest:-<none>}"
-                        ;;
-                    script|scripts)
-                        printf 'call script_install()\n'
-                        printf 'with args: %s\n' "${rest:-<none>}"
-                        ;;
-                    config|configs)
-                        printf 'call config_install()\n'
-                        printf 'with args: %s\n' "${rest:-<none>}"
-                        ;;
-                    *)
-                        printf 'Error: wrong input "%s"\n\n' "$sub"
-                        printf '%s\n' "$install_commands"
-                        ;;
-                esac
-            fi
-            ;;
-
-        *)
-            printf 'Invalid command [?]\n'
-            ;;
+    case "$MENU_CHOICE" in
+        install)  net_module install  && install_main ;;
+        doctor)   net_module doctor   && doctor_main ;;
+        codebase) net_module codebase && codebase_main ;;
+        whoami)   net_module whoami   && whoami_main ;;
+        card)     net_module card     && card_main ;;
+        colours)  net_module colours  && colours_main ;;
+        shell)    net_module shell    && shell_main ;;
+        quit | *) break ;;
     esac
 done
 
+ui_banner
+printf '\n   %sGoodbye Karsh...%s\n\n' "$C_GREEN" "$C_RESET"

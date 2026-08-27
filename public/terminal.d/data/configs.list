@@ -1,0 +1,15 @@
+# terminal.d/data/configs.list
+# Per-tool configuration files.
+#
+# NOTE: these point at github.com/karnull/dotfiles. Every entry is probed with
+# a HEAD request before anything is written, so rows whose source does not
+# exist yet simply show as "missing" instead of installing junk. Update the
+# URLs here as the dotfiles repo takes shape -- nothing else needs to change.
+#
+# name | url | destination | description
+nvim      | https://raw.githubusercontent.com/karnull/dotfiles/main/nvim/init.lua        | $HOME/.config/nvim/init.lua       | neovim entrypoint
+tmux      | https://raw.githubusercontent.com/karnull/dotfiles/main/tmux/tmux.conf       | $HOME/.tmux.conf                  | tmux bindings and status line
+alacritty | https://raw.githubusercontent.com/karnull/dotfiles/main/alacritty/alacritty.toml | $HOME/.config/alacritty/alacritty.toml | terminal colours and font
+starship  | https://raw.githubusercontent.com/karnull/dotfiles/main/starship/starship.toml   | $HOME/.config/starship.toml       | prompt layout
+zsh       | https://raw.githubusercontent.com/karnull/dotfiles/main/zsh/zshrc            | $HOME/.zshrc                      | shell aliases and options
+git       | https://raw.githubusercontent.com/karnull/dotfiles/main/git/gitconfig        | $HOME/.gitconfig                  | git identity and aliases

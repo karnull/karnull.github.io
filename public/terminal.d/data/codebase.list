@@ -1,0 +1,22 @@
+# terminal.d/data/codebase.list
+# Mirrors karsh.page/codebase.
+# name | kind | year | url | description
+#
+# kind is the group heading the menu draws: setup, nvim, tool. Rows are shown
+# in file order within their group, so keep each group together.
+dotfiles         | setup | 2026 | https://github.com/karnull/dotfiles           | configs for the GNU/Linux and Darwin setup
+templates        | setup | 2024 | https://github.com/karnull/templates          | project scaffolds: go, python, rust
+gists            | setup | 2023 | https://github.com/karnull/gists              | shell scripts for terminal enhancement
+fetch            | setup | 2021 | https://github.com/karnull/fetch              | minimal fetch scripts in bash
+switchboard.nvim | nvim  | 2026 | https://github.com/karnull/switchboard.nvim   | one keybind, per-project automations
+ifdef.nvim       | nvim  | 2026 | https://github.com/karnull/ifdef.nvim         | navigate C/C++ nested #ifdef blocks
+tokyoburn.nvim   | nvim  | 2026 | https://github.com/karnull/tokyoburn.nvim     | red-themed tokyonight fork
+only-tmux.nvim   | nvim  | 2025 | https://github.com/karnull/only-tmux.nvim     | neovim/tmux pane discipline
+ghdl.nvim        | nvim  | 2024 | https://github.com/karnull/ghdl.nvim          | vhdl development in neovim
+smonitor         | tool  | 2025 | https://github.com/karnull/smonitor           | serial monitor, timestamped, saves to file
+gun              | tool  | 2025 | https://github.com/karnull/gun                | go run across projects (archived)
+ti               | tool  | 2025 | https://github.com/karnull/ti                 | text invert: reformat args or piped input
+MemoryPercent    | tool  | 2024 | https://github.com/karnull/MemoryPercent      | percentage of time elapsed since a date
+arch_vulnerable  | tool  | 2022 | https://github.com/karnull/arch_vulnerable    | match local packages against known CVEs (archived)
+aur_helper       | tool  | 2022 | https://github.com/karnull/aur_helper         | install packages from the AUR (archived)
+zella_bot        | tool  | 2021 | https://github.com/karnull/zella_bot          | discord bot for anonymous confessions (archived)

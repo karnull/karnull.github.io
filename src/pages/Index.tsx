@@ -162,6 +162,70 @@ const FileTree = () => {
   );
 };
 
+const TERMINAL_COMMAND = "curl -sL karsh.page/terminal | sh";
+
+const TerminalInvite = () => {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(TERMINAL_COMMAND);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      title="click to copy"
+      aria-label={`Copy command: ${TERMINAL_COMMAND}`}
+      className="hover:text-primary transition-colors"
+    >
+      [{copied ? "try it on terminal" : TERMINAL_COMMAND}]
+    </button>
+  );
+};
+
+// Intl resolves the AEST/AEDT abbreviation and the offset from the IANA
+// database, so the daylight saving switch in October and April is handled
+// without any offset maths here. formatToParts rather than format because the
+// exact string layout of the latter is engine-dependent.
+const melbourneTime = () => {
+  const parts = new Intl.DateTimeFormat("en-AU", {
+    timeZone: "Australia/Melbourne",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+    timeZoneName: "short",
+  }).formatToParts(new Date());
+
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((p) => p.type === type)?.value ?? "";
+
+  return `${part("hour")}:${part("minute")} ${part("timeZoneName")}`;
+};
+
+const MelbourneClock = () => {
+  const [time, setTime] = useState(melbourneTime);
+
+  useEffect(() => {
+    // Ticking every second keeps the minute roll-over tight. Re-setting an
+    // identical string is a no-op for React, so this stays cheap.
+    const id = setInterval(() => setTime(melbourneTime()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span className="text-primary/40" title="Melbourne, Australia">
+      ◈ {time} ◈
+    </span>
+  );
+};
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -200,8 +264,8 @@ const Index = () => {
         {/* Footer */}
         <footer className="pt-6 border-t border-border/20">
           <div className="flex items-center justify-between text-muted-foreground text-xs font-mono">
-            <span>[https://karsh.page]</span>
-            <span className="text-primary/40">◈ ENCRYPTED ◈</span>
+            <TerminalInvite />
+            <MelbourneClock />
           </div>
         </footer>
       </div>

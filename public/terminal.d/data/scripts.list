@@ -1,0 +1,17 @@
+# terminal.d/data/scripts.list
+# Standalone scripts from github.com/karnull/gists, installed into ~/.local/bin.
+# name | url | installed-as | description
+colors    | https://raw.githubusercontent.com/karnull/gists/main/colors.sh              | colors    | print every \033 terminal colour
+periodic  | https://raw.githubusercontent.com/karnull/gists/main/periodic.sh            | periodic  | ASCII periodic table with colour coding
+refresh   | https://raw.githubusercontent.com/karnull/gists/main/refresh.sh             | refresh   | drop system caches to free memory
+battery   | https://raw.githubusercontent.com/karnull/gists/main/battery_cap.sh         | battery   | systemd service to cap max charge percentage
+temps     | https://raw.githubusercontent.com/karnull/gists/main/monitor_temp.sh        | temps     | watch CPU and GPU temperatures, alert on threshold
+ports     | https://raw.githubusercontent.com/karnull/gists/main/open_ports.sh          | ports     | listening ports and the processes bound to them
+usage     | https://raw.githubusercontent.com/karnull/gists/main/disk_usage_summary.sh  | usage     | biggest directories and files, sorted by size
+gl        | https://raw.githubusercontent.com/karnull/gists/main/gl.sh                  | gl        | git log with coloured refs and a readable format
+devenv    | https://raw.githubusercontent.com/karnull/gists/main/devenv.sh              | devenv    | one interface over docker and devcontainers
+copycode  | https://raw.githubusercontent.com/karnull/gists/main/copy_code.sh           | copycode  | copy every source file of a type to the clipboard
+namedit   | https://raw.githubusercontent.com/karnull/gists/main/namedit.sh             | namedit   | mass-rename files in your editor, convert via ffmpeg
+vimacro   | https://raw.githubusercontent.com/karnull/gists/main/vimacro.sh             | vimacro   | run vim macros over files from the shell
+watchfile | https://raw.githubusercontent.com/karnull/gists/main/watch_file.sh          | watchfile | tail a file and notify when it changes
+rmsymlink | https://raw.githubusercontent.com/karnull/gists/main/rmsymlink.sh           | rmsymlink | remove a symlink and its target together
