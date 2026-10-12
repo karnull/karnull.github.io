@@ -19,7 +19,7 @@ const ImageSlideshow = ({ images, interval = 4000 }: ImageSlideshowProps) => {
   }, [images.length, interval]);
 
   return (
-    <div className="relative w-full aspect-[3/4]">
+    <div className="relative w-full aspect-3/4">
       {/* Tech frame - outer border */}
       <div className="absolute inset-0 border-2 border-primary/40" />
 
@@ -30,10 +30,10 @@ const ImageSlideshow = ({ images, interval = 4000 }: ImageSlideshowProps) => {
       <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary" />
 
       {/* Scanline overlay */}
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,255,136,0.03)_50%)] bg-[length:100%_4px] z-10" />
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,255,136,0.03)_50%)] bg-size-[100%_4px] z-10" />
 
       {/* Glow effect */}
-      <div className="absolute -inset-1 bg-primary/5 blur-sm -z-10" />
+      <div className="absolute -inset-1 bg-primary/5 blur-xs -z-10" />
 
       {/* Image container */}
       <div className="absolute inset-2 overflow-hidden bg-background/50">
