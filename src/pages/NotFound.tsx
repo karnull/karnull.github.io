@@ -29,7 +29,7 @@ const NotFound = () => {
         </h1>
 
         {/* Divider line */}
-        <div className="w-48 h-px mx-auto bg-gradient-to-r from-transparent via-primary/80 to-transparent mb-6" />
+        <div className="w-48 h-px mx-auto bg-linear-to-r from-transparent via-primary/80 to-transparent mb-6" />
 
         {/* Message */}
         <p className="font-mono text-sm text-muted-foreground mb-10 leading-relaxed">
