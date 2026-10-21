@@ -158,7 +158,7 @@ const PostCard = ({ heading, paragraph, images, year }: PostCardProps) => {
               ))}
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-card/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-card/50 to-transparent pointer-events-none" />
         </div>
       )}
     </div>
@@ -175,7 +175,7 @@ const Community = () => {
           communities feel more alive.
         </p>
 
-        <div className="mt-8 [columns:36rem_2] gap-6">
+        <div className="mt-8 columns-[36rem_2] gap-6">
           {samplePosts.map((post) => (
             <PostCard
               key={post.id}
