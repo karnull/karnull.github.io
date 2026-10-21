@@ -29,6 +29,30 @@ const codebasePosts: CodePost[] = [
     link: "https://github.com/karnull/switchboard.nvim",
   },
   {
+    year: 2026,
+    grade: "toolsAndScripts",
+    heading: "tnotify",
+    description: "Notifications as a tmux overlay.",
+    tags: ["tmux", "copilot-cli"],
+    link: "https://github.com/karnull/tnotify",
+  },
+  {
+    year: 2026,
+    grade: "toolsAndScripts",
+    heading: "grid",
+    description: "Arrange a set of images into a single PNG collage.",
+    tags: ["Go"],
+    link: "https://github.com/karnull/grid",
+  },
+  {
+    year: 2026,
+    grade: "toolsAndScripts",
+    heading: "ifdef.nvim",
+    description: "Navigate C/C++ files full of nested #ifdef blocks.",
+    tags: ["neovim", "C", "C++"],
+    link: "https://github.com/karnull/ifdef.nvim",
+  },
+  {
     grade: "templates",
     heading: "",
     description: "Generic",
@@ -57,15 +81,6 @@ const codebasePosts: CodePost[] = [
     link: "https://github.com/karnull/templates/tree/rust",
   },
   {
-    year: 2026,
-    grade: "projects",
-    heading: "OpenNetics - Capture_SRM",
-    description:
-      "Tool to visualise serial read and record gestures for OpenNetics dev.",
-    tags: ["Python", "QT", "scipy", "numpy"],
-    link: "https://github.com/OpenNetics/Capture-SRM",
-  },
-  {
     year: 2025,
     grade: "projects",
     heading: "smonitor",
@@ -73,15 +88,6 @@ const codebasePosts: CodePost[] = [
       "Tool for reading and writing serial port data with timestamped logging capabilities.",
     tags: ["Serial Communication", "C++"],
     link: "https://github.com/karnull/smonitor",
-  },
-  {
-    year: 2025,
-    grade: "learning",
-    heading: "IoT Firmware",
-    description:
-      "Firmware development for IoT devices featuring ECG and motion sensors.",
-    tags: ["C", "C++", "ESP-IDF", "IoT"],
-    link: "https://github.com/karnull/SWE30011-Firmware",
   },
   {
     year: 2024,
@@ -127,12 +133,11 @@ const codebasePosts: CodePost[] = [
   },
   {
     year: 2024,
-    grade: "learning",
-    heading: "AstroStreakNet",
-    description:
-      "Capstone Project. Interface for astronomers to manage captured streak.",
-    tags: ["Go", "Java", "Python", "Shell", "Typescript"],
-    link: "https://github.com/AstroStreakNet",
+    grade: "toolsAndScripts",
+    heading: "tokyoburn.nvim",
+    description: "Red themed fork of folke/tokyonight.nvim.",
+    tags: ["neovim", "Lua"],
+    link: "https://github.com/karnull/tokyoburn.nvim",
   },
   {
     year: 2024,
@@ -168,23 +173,6 @@ const codebasePosts: CodePost[] = [
     link: "https://github.com/karnull/gists/blob/main/colors.sh",
   },
   {
-    year: 2023,
-    grade: "learning",
-    heading: "Flight DBMS",
-    description: "Project in Julia to study user permissions within database.",
-    tags: ["Julia", "MySQL", "MariaDB"],
-    link: "https://github.com/karnull/uni-flightDBMS",
-  },
-  {
-    year: 2022,
-    grade: "toolsAndScripts",
-    heading: "Arch vulnerable",
-    description:
-      "Python web-scraper util to match local packages with known vulnerable ones.",
-    tags: ["Python", "Arch Linux", "BeautifulSoup"],
-    link: "https://github.com/karnull/arch_vulnerable",
-  },
-  {
     year: 2022,
     grade: "toolsAndScripts",
     heading: "AUR helper",
@@ -199,39 +187,6 @@ const codebasePosts: CodePost[] = [
     description: "Clear system cache to free up memory.",
     tags: ["Shell", "UNIX"],
     link: "https://github.com/karnull/gists/blob/main/refresh.sh",
-  },
-  {
-    year: 2022,
-    grade: "learning",
-    heading: "D02",
-    description: "Wireless Message Communicator built on top of myDAQ1.",
-    tags: ["MATLAB", "myDAQ1"],
-    link: "https://github.com/karnull/uni-d02",
-  },
-  {
-    year: 2022,
-    grade: "learning",
-    heading: "Flight Booking",
-    description: "Flight reservation website.",
-    tags: ["PHP", "HTML", "CSS", "JavaScript"],
-    link: "https://github.com/karnull/uni-delta_flights",
-  },
-  {
-    year: 2022,
-    grade: "learning",
-    heading: "Traffic Light Simulator",
-    description:
-      "FPGA design in VHDL to simulate traffic light/pedestrian buttons.",
-    tags: ["VHDL", "FPGA"],
-    link: "https://github.com/karnull/uni-traffic_light",
-  },
-  {
-    year: 2021,
-    grade: "toolsAndScripts",
-    heading: "ZellaBOT",
-    description: "Discord bot for anonymous server confessions.",
-    tags: ["Python", "Discord API"],
-    link: "https://github.com/karnull/zella_bot",
   },
   {
     year: 2021,
@@ -249,38 +204,6 @@ const codebasePosts: CodePost[] = [
       "Create systemd service to put a limit on max charge percentage.",
     tags: ["Shell", "systemd"],
     link: "https://github.com/karnull/gists/blob/main/battery_cap.sh",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "CLI Music Player",
-    description: "Simple terminal offline music player in ruby",
-    tags: ["Ruby"],
-    link: "https://github.com/karnull/uni-music_player_cli",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "GUI Music Player",
-    description: "Simple graphical offline music player in ruby",
-    tags: ["Ruby", "Gosu"],
-    link: "https://github.com/karnull/uni-music_player_gui",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "Random Walker",
-    description: "Test randomness of a pseudorandom algorithm",
-    tags: ["Ruby", "Gosu"],
-    link: "https://github.com/karnull/uni-random_walker",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "Genesis",
-    description: "2D adventure game.",
-    tags: ["Ruby", "Gosu"],
-    link: "https://github.com/karnull/uni-genesis",
   },
 ];
 
@@ -390,6 +313,19 @@ const Codebase = () => {
             </Collapsible>
           );
         })}
+
+        <p className="text-foreground/70">
+          Other projects can be found at{" "}
+          <a
+            href="https://github.com/karshosphere"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline"
+          >
+            Karsh's Stratosphere
+          </a>
+          . Above the clouds. All my random projects drift here like aerosols.
+        </p>
       </div>
     </PageLayout>
   );
