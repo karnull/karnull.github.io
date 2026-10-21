@@ -121,7 +121,7 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
             ${isHovered ? "h-24 opacity-100" : "h-0 opacity-0"}
           `}
         >
-          <div className="relative w-10 h-24 flex items-center justify-center py-3 border border-primary/50 bg-background/90 backdrop-blur-sm">
+          <div className="relative w-10 h-24 flex items-center justify-center py-3 border border-primary/50 bg-background/90 backdrop-blur-xs">
             {/* Corner accents for slider */}
             <div className="absolute -top-px -left-px w-2 h-2 border-t border-l border-primary" />
             <div className="absolute -top-px -right-px w-2 h-2 border-t border-r border-primary" />
@@ -171,7 +171,7 @@ const AudioPlayer = ({ src }: AudioPlayerProps) => {
         {/* Play/Pause Button */}
         <button
           onClick={togglePlayPause}
-          className="w-12 h-12 border border-primary/50 bg-background/80 backdrop-blur-sm flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group relative"
+          className="w-12 h-12 border border-primary/50 bg-background/80 backdrop-blur-xs flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all duration-300 group relative"
           aria-label={isPlaying ? "Pause" : "Play"}
         >
           {/* Corner accents */}
