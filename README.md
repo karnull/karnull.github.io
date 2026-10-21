@@ -14,3 +14,9 @@ working on it.
 
 Tailwind is configured in `src/index.css`; there is no separate Tailwind config
 file.
+
+## Projects page
+
+The projects page lists repositories on `github.com/karnull` only, and links to
+the `karshosphere` organisation for everything else. Entries live in
+`src/pages/Codebase.tsx`.
