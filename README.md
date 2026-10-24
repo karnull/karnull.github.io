@@ -19,3 +19,7 @@ file.
 
 Renovate keeps dependencies current and is set to group every update, majors
 included, into a single pull request. See `renovate.json`.
+
+Renovate updates lockfiles with npm 11, because npm 12 refuses to install
+Tailwind 4's wasm engine package. TypeScript is held below 7 until
+`typescript-eslint` supports it.
