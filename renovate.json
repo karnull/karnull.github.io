@@ -3,5 +3,15 @@
   "extends": [
     "config:recommended",
     "group:all"
+  ],
+  "constraints": {
+    "npm": "<12"
+  },
+  "packageRules": [
+    {
+      "description": "typescript-eslint does not support TypeScript 7 yet",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
+    }
   ]
 }
