@@ -14,3 +14,8 @@ working on it.
 
 Tailwind is configured in `src/index.css`; there is no separate Tailwind config
 file.
+
+## Dependency updates
+
+Renovate keeps dependencies current and is set to group every update, majors
+included, into a single pull request. See `renovate.json`.
