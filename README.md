@@ -18,7 +18,9 @@ file.
 ## Dependency updates
 
 Renovate keeps dependencies current and is set to group every update, majors
-included, into a single pull request. See `renovate.json`.
+included, into a single pull request, opened before 6am on Sundays (Melbourne time). An
+open pull request is not touched outside that window. Security fixes ignore the
+schedule. See `renovate.json`.
 
 Renovate updates lockfiles with npm 11, because npm 12 refuses to install
 Tailwind 4's wasm engine package. TypeScript is held below 7 until
