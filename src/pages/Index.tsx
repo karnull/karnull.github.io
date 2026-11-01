@@ -23,11 +23,6 @@ const personalItems = [
     description: "observations, ideas and reflections",
     to: "/journal",
   },
-  {
-    name: "certifications/",
-    description: "certificates & licenses",
-    to: "/certifications",
-  },
 ];
 
 const profileItems = [
