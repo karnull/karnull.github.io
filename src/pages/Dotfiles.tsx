@@ -10,10 +10,10 @@ const tools = [
   "fzf",
   "ripgrep",
   "btop",
-  "tailscale",
+  "Tailscale",
   "Docker",
   "n8n",
-  "thingsboard",
+  "ThingsBoard",
   "bandwhich",
 ];
 
@@ -32,8 +32,8 @@ const Dotfiles = () => {
           <pre className="text-primary/70 text-sm whitespace-pre">
             {`// Hardware Peripherals
 > Portable Console : MacBook Pro M3 Pro
-> Edge Module      : Debian @ RaspberryPi 3B+
-> Central Data Hub : Custom Mint Server @ NVidia 1650Ti, 16GB DDR4 + 32GB Intel Optane`}
+> Edge Module      : Debian @ Raspberry Pi 3B+
+> Central Data Hub : Custom Mint Server @ NVIDIA 1650Ti, 16GB DDR4 + 32GB Intel Optane`}
           </pre>
         </div>
 
@@ -42,7 +42,7 @@ const Dotfiles = () => {
           <h4 className="text-primary font-display text-lg uppercase tracking-wider mb-4">
             System Run
           </h4>
-          Sample Go project to prints “Hello World”, committed to a local
+          A sample Go project that prints “Hello World”, committed to a local
           repository.
           <br />
           <br />

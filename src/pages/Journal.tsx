@@ -14,18 +14,18 @@ const journalEntries: JournalEntry[] = [
   {
     id: 1,
     heading: "Withdrawing from Grad School",
-    date: "August 31, 2025",
+    date: "31 August 2025",
     description:
-      "About my decision to withdraw from Babson College and build myself as a professionally.",
+      "Why I left Babson College to grow as an engineer through real work instead.",
     tags: ["Babson College", "Entrepreneurship", "Graduate School"],
     slug: "/writing/withdrawing-from-grad-school",
   },
   {
     id: 2,
     heading: "What automation should be for",
-    date: "May 2, 2025",
+    date: "2 May 2025",
     description:
-      "Understanding the transformative potential of automation to reshape work, welfare, and accessibility in society.",
+      "What automation is actually for: less burden, wider access and more independence, not just efficiency.",
     tags: ["Automation", "AI", "Systems Design"],
     slug: "/writing/automation-and-purpose",
   },
@@ -65,7 +65,7 @@ const Journal = () => {
     <PageLayout title="Writing">
       <div className="space-y-8">
         <p className="text-foreground/70">
-          Technical writings, reflections, and insights on code and life.
+          Notes, reflections and the odd technical piece, on code and life.
         </p>
 
         <div className="space-y-4">

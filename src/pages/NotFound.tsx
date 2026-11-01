@@ -42,12 +42,12 @@ const NotFound = () => {
           to="/"
           className="inline-block cyber-box px-8 py-3 font-mono text-sm uppercase tracking-widest text-primary hover:text-primary-foreground hover:bg-primary/90 transition-all duration-300"
         >
-          [ re-enter karnull page]
+          [ re-enter karnull page ]
         </Link>
 
         {/* Status line */}
         <p className="mt-10 font-mono text-xs text-muted-foreground/50 tracking-widest">
-          STATUS: <span className="text-destructive">OFFLINE</span> — ROUTE{" "}
+          STATUS: <span className="text-destructive">OFFLINE</span> - ROUTE{" "}
           <span className="text-secondary">{location.pathname}</span> NOT MAPPED
         </p>
       </div>

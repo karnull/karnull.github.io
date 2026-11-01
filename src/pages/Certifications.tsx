@@ -26,14 +26,14 @@ const certificatesPosts: CourseSection[] = [
       {
         heading: "C Programming for Embedded Applications",
         description:
-          "Principles for efficient embedded software in C, focusing on challenges like memory limits, power consumption, and hardware awareness, along with volatile and nonvolatile memory concepts and optimisation techniques for efficiency and performance.",
+          "Principles for efficient embedded software in C, focusing on challenges like memory limits, power consumption and hardware awareness, along with volatile and non-volatile memory concepts and optimisation techniques for efficiency and performance.",
         tags: ["Embedded C"],
         link: "https://www.linkedin.com/learning/certificates/348fe2b72b88d447e1b63a23b0ecad0c31b3b3f36776e5900b35770840c7e01a?u=51091521",
       },
       {
         heading: "Introduction to Linux",
         description:
-          "Fundamentals of Linux, including the kernel, desktop environments, and file storage.",
+          "Fundamentals of Linux, including the kernel, desktop environments and file storage.",
         tags: ["Linux",],
         link: "https://www.linkedin.com/learning/certificates/73d1585d91ad86005f9d1bd9e9bc0254ae129081b500290ede06b340a5a34462?u=51091521",
       },
@@ -45,13 +45,13 @@ const certificatesPosts: CourseSection[] = [
       {
         heading: "Entrepreneurship Foundations",
         description:
-          "Steps to launch and grow a startup: evaluating business opportunities, starting small, raising funds, assembling the right team and advisers, engaging early adopters, building your personal brand, finding supporters, and scaling your company. Part of a Microsoft Professional Certificate.",
+          "Steps to launch and grow a startup: evaluating business opportunities, starting small, raising funds, assembling the right team and advisers, engaging early adopters, building your personal brand, finding supporters and scaling your company. Part of a Microsoft Professional Certificate.",
         tags: ["Entrepreneurship"],
         link: "https://www.linkedin.com/learning/certificates/7af2c49088aec2698df9b7f4faaca4269d7622de6bd7039a4e086a32cb74fb36?trk=share_certificate",
       },
       {
         heading: "Personal Finance Concepts",
-        description: "The course offered an overview of personal finance, covering essential topics such as bank accounts, credit scores, loans, and mortgages, along with tips on managing everyday financial decisions, avoiding banking fees, and improving credit scores.",
+        description: "Overview of personal finance: bank accounts, credit scores, loans and mortgages, along with tips on managing everyday financial decisions, avoiding banking fees and improving credit scores.",
         tags: ["Personal Finance"],
         link: "https://www.linkedin.com/learning/certificates/a14aa8bc788b71b6dc3663f7f930a7f277e152bb4f385a5477bbe2cadbf56991?u=51091521",
       },
@@ -96,10 +96,10 @@ const Certificates = () => {
   };
 
   return (
-    <PageLayout title="certificates" wide>
+    <PageLayout title="Certifications" wide>
       <div className="space-y-8">
         <p className="text-foreground/70">
-          Credentials, badges, and licenses earned beyond the classroom — concise markers of experience and practice.
+          Courses and certificates I've picked up outside of uni - small markers of what I've been learning on the side.
         </p>
 
         {certificatesPosts.map((section) => {
