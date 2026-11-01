@@ -25,9 +25,9 @@ const samplePosts = [
     year: "2024-25",
     heading: "Swinburne Hellenic Society",
     paragraph: [
-      "I joined the Swinburne Hellenic Society in the final years of university out of a genuine interest in culture, community, and meeting people outside my usual circles. Over time, I moved from being a general member to the committee, and eventually served as Treasurer. Being trusted with that role, despite not coming from a Greek background, meant a lot to me.",
-      "The club gave me more than just events to help organise. It gave me a sense of how much community is built through small, consistent effort - showing up, helping things run well, and making people feel welcome. Through the society and its connection to NUGAS, I met people from across Melbourne and had the chance to learn from a culture that was not originally my own, which made the experience even more meaningful.",
-      "What stayed with me most was the warmth of it all. It was one of those experiences that reminded me that community is not always built through big ideas. Often it comes from shared meals, regular effort, and people who genuinely care about keeping something alive.",
+      "I joined the Swinburne Hellenic Society in the final years of university out of a genuine interest in culture, community and meeting people outside my usual circles. Over time, I moved from being a general member to the committee, and eventually served as Treasurer. Being trusted with that role, despite not coming from a Greek background, meant a lot to me.",
+      "The club gave me more than just events to help organise. It gave me a sense of how much community is built through small, consistent effort - showing up, helping things run well and making people feel welcome. Through the society and its connection to NUGAS, I met people from across Melbourne and had the chance to learn from a culture that wasn't originally my own, which made the whole experience richer.",
+      "What stayed with me most was the warmth of it all. It was one of those experiences that reminded me that community isn't always built through big ideas. Often it comes from shared meals, regular effort and people who genuinely care about keeping something alive.",
     ],
     images: [imgGreekClub1, imgGreekClub2, imgGreekClub3, imgGreekClub4],
   },
@@ -37,7 +37,7 @@ const samplePosts = [
     heading: "In2Science",
     paragraph: [
       "I volunteered with In2Science as a maths mentor, working with Year 10 students and helping them build confidence around ideas that often feel more intimidating than they need to be. Maths has always mattered to me, not just as a subject, but as a way of thinking clearly and making sense of the world.",
-      "A lot of students grow up seeing maths as something dry or inaccessible. In contrast, to me, it is closer to a language of logic than a collection of rules, and that shift in perspective can make a real difference. Mentoring gave me the chance to share that view and help students see that STEM is not reserved for a certain type of person.",
+      "A lot of students grow up seeing maths as something dry or inaccessible. To me, though, it's closer to a language of logic than a collection of rules, and that shift in perspective can make a real difference. Mentoring gave me the chance to share that view and help students see that STEM isn't reserved for a certain type of person.",
       "I was nominated for Best Mentor and recognised as a finalist for Best Communicator during my two years with In2Science.",
     ],
     images: [imgIn2Science1, imgIn2Science2, imgIn2Science3],
@@ -47,9 +47,9 @@ const samplePosts = [
     year: "2020-21",
     heading: "Sweebs Club",
     paragraph: [
-      "I started Sweebs during the COVID years at university, when a lot of student life felt distant and half-formed. The original idea was simple: a space built around shared interest in Asian animated media, including Japanese and Korean comics, animation, and music. But very quickly it became clear that the real need was not just for a niche club — it was for connection.",
-      "As things grew, the club became more of a social space than a fandom space. Students from across the university were looking for somewhere to meet people, talk, and feel part of something while so much of university life was still happening at a distance. Within a few months, Sweebs had grown to more than 400 members and became one of the larger student communities on campus at the time.",
-      "What mattered most to me was not the size of the club, but what it represented. It showed me that even a simple idea can become meaningful if it answers the right need. I also started an all-committee community to help clubs collaborate more easily, which quickly brought together representatives from more than 20 societies. Looking back, that period taught me a lot about building things for people: if you pay attention to what is missing, even a small initiative can create real momentum.",
+      "I started Sweebs during the COVID years at university, when a lot of student life felt distant and half-formed. The original idea was simple: a space built around a shared interest in Asian animated media, including Japanese and Korean comics, animation and music. But very quickly it became clear that the real need wasn't just for a niche club - it was for connection.",
+      "As things grew, the club became more of a social space than a fandom space. Students from across the university were looking for somewhere to meet people, talk and feel part of something while so much of university life was still happening at a distance. Within a few months, Sweebs had grown to more than 400 members and became one of the larger student communities on campus at the time.",
+      "What mattered most to me wasn't the size of the club, but what it represented. It showed me that even a simple idea can become meaningful if it answers the right need. I also set up a cross-club committee group to help societies work together, which quickly brought in representatives from more than 20 of them. Looking back, that period taught me a lot about building things for people: if you pay attention to what's missing, even a small initiative can create real momentum.",
     ],
     images: [],
   },
@@ -58,8 +58,8 @@ const samplePosts = [
     year: 2018,
     heading: "Round Square: Eye Camp",
     paragraph: [
-      "In my final year of high school, I took part in a Round Square volunteer programme in India focused on eye health in under-served communities. Before the trip, we were trained by professionals to carry out basic eye tests, and once there we helped raise awareness, assess vision, and provide glasses to people who otherwise had little access to that kind of care.",
-      "What stayed with me was how many people had been living with poor vision without realising that their situation could be improved so simply. Watching something as ordinary as a basic eye test make such an immediate difference was deeply affecting. It was a reminder that meaningful service is not always complicated. Sometimes it is practical, direct, and quietly life-changing.",
+      "In my final year of high school, I took part in a Round Square volunteer programme in India focused on eye health in underserved communities. Before the trip, we were trained by professionals to carry out basic eye tests, and once there we helped raise awareness, assess vision and provide glasses to people who otherwise had little access to that kind of care.",
+      "What stayed with me was how many people had been living with poor vision without realising that their situation could be improved so simply. Watching something as ordinary as a basic eye test make such an immediate difference was deeply affecting. It was a reminder that real service isn't always complicated. Sometimes it's practical, direct and quietly life-changing.",
       "The programme also received local media attention, which was unexpected, but the lasting value of the experience was much more personal. It gave me an early sense of what it means to contribute to something larger than yourself, and that idea has stayed with me ever since.",
     ],
     images: [
@@ -171,7 +171,7 @@ const Community = () => {
       <div className="space-y-8">
         <p className="text-foreground/70">
           A lot of the most meaningful parts of my life so far have happened
-          around people — mentoring, organising, volunteering, and helping make
+          around people - mentoring, organising, volunteering and helping make
           communities feel more alive.
         </p>
 

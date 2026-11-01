@@ -52,7 +52,6 @@ export const routePreloadBatches: RoutePreloadBatch[] = [
   { path: "/codebase", loadImages: loadNoImages },
   { path: "/community", loadImages: loadCommunityImages },
   { path: "/opennetics", loadImages: loadOpenneticsImages },
-  { path: "/certifications", loadImages: loadNoImages },
   { path: "/journal", loadImages: loadNoImages },
   { path: "/writing/automation-and-purpose", loadImages: loadNoImages },
   { path: "/writing/withdrawing-from-grad-school", loadImages: loadNoImages },

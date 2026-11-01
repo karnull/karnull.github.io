@@ -25,9 +25,9 @@ const Background = () => {
           Building is the constant. I’m driven to make useful, thoughtful,
           tangible things - be that software, firmware, a tool, a system or an
           evolving idea. I’m interested in how machines can enhance people’s
-          abilities: what it can enable, what it should simplify, and therefore
-          which systems are worth creating. That’s why I’m drawn to embedded
-          systems, automation, open tools and assistive tech.
+          abilities: what they can enable, what they should simplify and therefore
+          which systems are worth creating. That’s why I’m drawn to devices,
+          automation, open tools and assistive tech.
           </p>
         </section>
 
@@ -48,7 +48,7 @@ const Background = () => {
               Swinburne University of Technology
             </a>{" "}
             gave me the technical discipline I was looking for and trained me to
-            think in systems, work through constraints, and respect the craft
+            think in systems, work through constraints and respect the craft
             behind useful things.
           </p>
           <br></br>
@@ -65,7 +65,7 @@ const Background = () => {
             to study entrepreneurship. Engineering had taught me how to build;
             entrepreneurship felt like the right place to think more seriously
             about what to build. After starting the course, I realised I would
-            learn more about industry by being in it - building, working, and
+            learn more about industry by being in it - building, working and
             seeing problems up close, rather than stepping away for further
             coursework. I withdrew to return to engineering work, with the
             goal of answering the "what to build" question through practice
@@ -79,7 +79,7 @@ const Background = () => {
             Building in Practice
           </h2>
           <p className="text-foreground/80 leading-relaxed">
-            Since graduating, I’ve worked across firmware, software, and
+            Since graduating, I’ve worked across firmware, software and
             product-facing engineering. At{" "}
             <a
               href="https://haemograph.com.au/"
@@ -87,8 +87,8 @@ const Background = () => {
               rel="noreferrer"
               className="text-primary hover:underline"
             >
-              Haemograph,
-            </a>{" "}
+              Haemograph
+            </a>,{" "}
             I worked close to hardware and embedded systems, writing firmware
             for a blood coagulation rheometer device on the ESP32 platform. My
             current role at{" "}
@@ -98,8 +98,8 @@ const Background = () => {
               rel="noreferrer"
               className="text-primary hover:underline"
             >
-              Design+Industry - Part of Capgemini,
-            </a>{" "}
+              Design+Industry - Part of Capgemini
+            </a>,{" "}
             is helping me keep building in the real world and grow into the kind
             of engineer I want to become. Earlier on, I also interned at a FinTech startup,{" "}
             <a
@@ -114,9 +114,9 @@ const Background = () => {
           </p>
           <br></br>
           <p className="text-foreground/80 leading-relaxed">
-            Outside work, I am training for 100km ultramarathon, learning to
-            play guitar, exploring different cuisines, and trying everything new
-            and random I can.
+            Outside work, I'm training for a 100 km ultramarathon, learning to
+            play guitar, exploring different cuisines and trying anything new and
+            random I can get my hands on.
           </p>
         </section>
       </div>

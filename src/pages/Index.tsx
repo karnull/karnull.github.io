@@ -5,7 +5,7 @@ import MatrixRain from "@/components/MatrixRain";
 const personalItems = [
   {
     name: "profile/",
-    description: "background, interests, and direction",
+    description: "background, interests and direction",
     to: "/background",
   },
   {
@@ -20,13 +20,8 @@ const personalItems = [
   },
   {
     name: "writing/",
-    description: "observations, ideas, and reflections",
+    description: "observations, ideas and reflections",
     to: "/journal",
-  },
-  {
-    name: "certifications/",
-    description: "certificates & licenses",
-    to: "/certifications",
   },
 ];
 
@@ -185,7 +180,7 @@ const TerminalInvite = () => {
       aria-label={`Copy command: ${TERMINAL_COMMAND}`}
       className="hover:text-primary transition-colors"
     >
-      [{copied ? "try it on terminal" : TERMINAL_COMMAND}]
+      [{copied ? "copied - paste it in a terminal" : TERMINAL_COMMAND}]
     </button>
   );
 };
@@ -241,18 +236,19 @@ const Index = () => {
         <header className="mb-12">
           <TerminalHeading />
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Software and systems engineer, with interests in embedded systems,
-            automation, open tools, and assistive technology. This site is
-            simply my page on the internet, a place to keep track of what I'm
-            building, learning, and thinking about.
+            Engineer with interests in automation, open tools and assistive
+            technology. I like working on devices: skilled in software,
+            passionate about hardware. This site is simply my page on the
+            internet, a place to keep track of what I'm building, learning and
+            thinking about.
           </p>
           <p className="text-muted-foreground font-mono text-sm mt-6 leading-relaxed">
-            Much of my direction - what I build and how I think about technology
-            - was shaped as much by fiction as by engineering. Mike Pondsmith's
-            Cyberpunk universe had a real impact on me. It made technology feel
-            human, political, and personal. I focus on tools that reduce
-            dependency on closed systems, mostly: firmware, automation, and open
-            utilities.
+            A lot of my direction - what I build and how I think about
+            technology - was shaped by fiction as much as by engineering. Mike
+            Pondsmith's Cyberpunk universe had a real impact on me. It made
+            technology feel human, political and personal. I focus on tools that
+            reduce dependency on closed systems, mostly devices, automation and
+            open utilities.
           </p>
         </header>
 
