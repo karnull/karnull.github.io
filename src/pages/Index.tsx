@@ -47,28 +47,52 @@ const profileItems = [
   },
 ];
 
+const TYPE_DELAY = 80;
+const ERASE_DELAY = 60;
+const HOLD_DELAY = 500;
+
+type HeadingFrame = { text: string; delay: number };
+
+const typeFrames = (from: string, to: string): HeadingFrame[] =>
+  Array.from({ length: to.length - from.length }, (_, i) => ({
+    text: to.slice(0, from.length + i + 1),
+    delay: TYPE_DELAY,
+  }));
+
+const eraseFrames = (from: string, to: string): HeadingFrame[] =>
+  Array.from({ length: from.length - to.length }, (_, i) => ({
+    text: from.slice(0, from.length - i - 1),
+    delay: i === 0 ? HOLD_DELAY : ERASE_DELAY,
+  }));
+
+const HEADING_FRAMES: HeadingFrame[] = [
+  ...typeFrames("", "Karnull"),
+  ...eraseFrames("Karnull", "Kar"),
+  ...typeFrames("Kar", "Karsh"),
+];
+
 const TerminalHeading = () => {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Karsh";
 
   useEffect(() => {
-    let index = 0;
-    const typeInterval = setInterval(() => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(typeInterval);
-      }
-    }, 80);
+    let frameTimeout: ReturnType<typeof setTimeout>;
+    const showFrame = (index: number) => {
+      if (index >= HEADING_FRAMES.length) return;
+      const { text, delay } = HEADING_FRAMES[index];
+      frameTimeout = setTimeout(() => {
+        setDisplayText(text);
+        showFrame(index + 1);
+      }, delay);
+    };
+    showFrame(0);
 
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 530);
 
     return () => {
-      clearInterval(typeInterval);
+      clearTimeout(frameTimeout);
       clearInterval(cursorInterval);
     };
   }, []);
