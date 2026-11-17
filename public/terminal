@@ -101,6 +101,7 @@ commands
   whoami                       session, host and network
   card                         contact card and PGP fingerprint
   colours                      terminal colour and font check
+  breach                       breach protocol, a netrunning puzzle
   list <catalog>               tools | configs | scripts | projects
   install <catalog> [name ...] install from a catalog
   shell                        the command REPL
@@ -116,6 +117,7 @@ if [ $# -gt 0 ]; then
         whoami)   net_module whoami  && whoami_report ;;
         card)     net_module card    && card_report ;;
         colours | colors) net_module colours && colours_report ;;
+        breach)   net_module breach  && breach_main ;;
         list)     net_module shell   && shell_list "${1:-}" ;;
         install)  net_module install && install_cmd "$@" ;;
         shell)    net_module shell   && shell_main ;;
@@ -151,6 +153,8 @@ while [ "$TUI_EXIT" -eq 0 ]; do
         "--|session|" \
         "whoami|whoami|session, host and network" \
         "shell|shell|command REPL, for typists" \
+        "--|play|" \
+        "breach|breach|netrun an access point before the ICE notices" \
         "quit|quit|" || break
 
     case "$MENU_CHOICE" in
@@ -161,6 +165,7 @@ while [ "$TUI_EXIT" -eq 0 ]; do
         card)     net_module card     && card_main ;;
         colours)  net_module colours  && colours_main ;;
         shell)    net_module shell    && shell_main ;;
+        breach)   net_module breach   && breach_main ;;
         quit | *) break ;;
     esac
 done
