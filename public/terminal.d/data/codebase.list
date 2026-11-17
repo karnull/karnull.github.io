@@ -1,22 +1,45 @@
 # terminal.d/data/codebase.list
-# Mirrors karsh.page/codebase.
-# name | kind | year | url | description
+# The one list of work: karsh.page/codebase renders it, and the terminal's
+# codebase screen reads it from here.
+# name | kind | year | url | tags | description
 #
-# kind is the group heading the menu draws: setup, nvim, tool. Rows are shown
-# in file order within their group, so keep each group together.
-dotfiles         | setup | 2026 | https://github.com/karnull/dotfiles           | configs for the GNU/Linux and Darwin setup
-templates        | setup | 2024 | https://github.com/karnull/templates          | project scaffolds: go, python, rust
-gists            | setup | 2023 | https://github.com/karnull/gists              | shell scripts for terminal enhancement
-fetch            | setup | 2021 | https://github.com/karnull/fetch              | minimal fetch scripts in bash
-switchboard.nvim | nvim  | 2026 | https://github.com/karnull/switchboard.nvim   | one keybind, per-project automations
-ifdef.nvim       | nvim  | 2026 | https://github.com/karnull/ifdef.nvim         | navigate C/C++ nested #ifdef blocks
-tokyoburn.nvim   | nvim  | 2026 | https://github.com/karnull/tokyoburn.nvim     | red-themed tokyonight fork
-only-tmux.nvim   | nvim  | 2025 | https://github.com/karnull/only-tmux.nvim     | neovim/tmux pane discipline
-ghdl.nvim        | nvim  | 2024 | https://github.com/karnull/ghdl.nvim          | vhdl development in neovim
-smonitor         | tool  | 2025 | https://github.com/karnull/smonitor           | serial monitor, timestamped, saves to file
-gun              | tool  | 2025 | https://github.com/karnull/gun                | go run across projects (archived)
-ti               | tool  | 2025 | https://github.com/karnull/ti                 | text invert: reformat args or piped input
-MemoryPercent    | tool  | 2024 | https://github.com/karnull/MemoryPercent      | percentage of time elapsed since a date
-arch_vulnerable  | tool  | 2022 | https://github.com/karnull/arch_vulnerable    | match local packages against known CVEs (archived)
-aur_helper       | tool  | 2022 | https://github.com/karnull/aur_helper         | install packages from the AUR (archived)
-zella_bot        | tool  | 2021 | https://github.com/karnull/zella_bot          | discord bot for anonymous confessions (archived)
+# kind is the page section: projects or scripts. The terminal shows only
+# projects; scripts it installs from scripts.list instead. Rows appear in file
+# order within their kind. Tags are comma-separated. No field may contain "|".
+switchboard.nvim           | projects | 2026 | https://github.com/karnull/switchboard.nvim | Lua, Neovim, tmux | One keybind, different actions. Binds per-project automations to a single key.
+tmux-telemetry             | projects | 2026 | https://github.com/karnull/tmux-telemetry | Go, tmux | Keeps a log of where the working day goes, from tmux session, window and pane switches, without changing how you work.
+datakrash                  | projects | 2026 | https://github.com/karnull/datakrash | Python, systemd, ntfy | Tracks your activity across services and, when you go quiet, checks in over ntfy before alerting a contact.
+osc52pty                   | projects | 2026 | https://github.com/karnull/osc52pty | Go, macOS | Workaround that brings OSC 52 clipboard copying to Terminal.app.
+grid                       | projects | 2026 | https://github.com/karnull/grid | Go | Arranges a set of images into a single PNG collage.
+OpenNetics - Capture-SRM   | projects | 2026 | https://github.com/OpenNetics/Capture-SRM | Python, Qt, SciPy, NumPy | Reads raw sensor values over serial, records gestures and builds machine learning models from them.
+tokyoburn.nvim             | projects | 2024 | https://github.com/karnull/tokyoburn.nvim | Lua, Neovim | Red-themed fork of folke/tokyonight.nvim.
+only-tmux.nvim             | projects | 2024 | https://github.com/karnull/only-tmux.nvim | Lua, Neovim, tmux | A Neovim keybind for :only that works on tmux panes too.
+tnotify                    | projects | 2026 | https://github.com/karnull/tnotify | Go, tmux | Notifications shown as a tmux overlay.
+ifdef.nvim                 | projects | 2026 | https://github.com/karnull/ifdef.nvim | Lua, Neovim, C/C++ | Maps nested #ifdef blocks in C and C++ files, with a tree view and labels for matching #endif lines.
+text invert (ti)           | projects | 2024 | https://github.com/karnull/ti | C | Formats text, passed as arguments or piped in, into one of several output styles.
+trash                      | projects | 2024 | https://github.com/karnull/trash | Go | Deletes files to the system trash, lists what's there and restores them by ID.
+smonitor                   | projects | 2025 | https://github.com/karnull/smonitor | C++, Arduino, Serial Communication | Terminal serial monitor with timestamps and saving straight to file.
+fetch                      | projects | 2021 | https://github.com/karnull/fetch | Shell | Collection of minimal system fetch scripts.
+ytdl_GTK3                  | projects | 2023 | https://github.com/karnull/ytdl_GTK3 | Python, GTK 3 | GTK 3 front end for youtube-dl.
+git_fuzzy.sh               | scripts  | 2026 | https://github.com/karnull/gists/blob/main/git_fuzzy.sh | Git, Shell, fzf | Fuzzy pickers for everyday git chores - branches, worktrees, stashes and staging.
+git_logs.sh                | scripts  | 2026 | https://github.com/karnull/gists/blob/main/git_logs.sh | Git, Shell, fzf | A tidier git log, with a coloured commit graph and fzf actions on picked commits.
+namedit.sh                 | scripts  | 2025 | https://github.com/karnull/gists/blob/main/namedit.sh | Workflow, Shell, ffmpeg | Mass-renames files in your $EDITOR, and converts them with ffmpeg when the extension changes.
+copy_code.sh               | scripts  | 2024 | https://github.com/karnull/gists/blob/main/copy_code.sh | Workflow, Shell | Copies every source file of a given type to the clipboard in one go.
+vimacro.sh                 | scripts  | 2024 | https://github.com/karnull/gists/blob/main/vimacro.sh | Workflow, Shell, Vim | Vim macros in the shell: record a sequence of edits and replay it across input.
+rmsymlink.sh               | scripts  | 2025 | https://github.com/karnull/gists/blob/main/rmsymlink.sh | Workflow, Shell | Removes a symbolic link together with the file it points to.
+watch_file.sh              | scripts  | 2026 | https://github.com/karnull/gists/blob/main/watch_file.sh | Monitoring, Shell | Tails a file and sends a notification when new content is added.
+colors.sh                  | scripts  | 2023 | https://github.com/karnull/gists/blob/main/colors.sh | Reference, Shell | Prints every terminal colour alongside its escape sequence.
+periodic.sh                | scripts  | 2023 | https://github.com/karnull/gists/blob/main/periodic.sh | Reference, Shell | Renders the periodic table in the terminal, colour-coded by group.
+battery_cap.sh             | scripts  | 2021 | https://github.com/karnull/gists/blob/main/battery_cap.sh | Maintenance, Shell, systemd | Caps a laptop's maximum charge with a systemd service, on supported models.
+refresh.sh                 | scripts  | 2022 | https://github.com/karnull/gists/blob/main/refresh.sh | Maintenance, Shell | Drops system caches and reports memory usage before and after.
+disk_usage_summary.sh      | scripts  | 2026 | https://github.com/karnull/gists/blob/main/disk_usage_summary.sh | Monitoring, Shell | Lists the directories and files taking up the most disk space.
+monitor_temp.sh            | scripts  | 2026 | https://github.com/karnull/gists/blob/main/monitor_temp.sh | Monitoring, Shell | Watches CPU and GPU temperatures and alerts when they pass a threshold.
+uplink                     | templates | 2026 | https://github.com/karshosphere/uplink | Python, REST | Small REST server that lets a container act on its host through fixed, named routes, without the Docker socket or a shell.
+agent-base                 | templates | 2026 | https://github.com/karshosphere/agent-base | Shell, Docker | Container setup for my self-hosted agentic workflow.
+dev-base                   | templates | 2026 | https://github.com/karshosphere/dev-base | Shell, Docker | Lightweight Alpine dev container with vim, git and Claude Code built in, plus compose templates for new projects.
+template-github-ci         | templates | 2026 | https://github.com/karshosphere/template-github-ci | Copier, GitHub Actions | Copier template for my generic GitHub Actions workflows.
+template-go                | templates | 2026 | https://github.com/karshosphere/template-go | Copier, Go | Copier template for my Go projects.
+template-python            | templates | 2026 | https://github.com/karshosphere/template-python | Copier, Python | Copier template for my Python projects.
+template-cxx               | templates | 2026 | https://github.com/karshosphere/template-cxx | Copier, C/C++ | Copier template for my C and C++ projects.
+TE SM9000 pressure sensors | contributions | 2024 | https://github.com/teemune/TE_SM9000_library/pull/2 | C++, Drivers | Fixed ambiguous I2C address type in Wire.requestFrom() call. Patch 1.2.2
+Amber                      | contributions | 2024 | https://github.com/Ph0enixKM/Amber/pull/102 | Amber, MacOS, Shell | Patched Amber's installer for MacOS installation.
