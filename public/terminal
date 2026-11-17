@@ -15,6 +15,7 @@
 #   TERMINAL_LOCAL=./public/terminal.d    run straight from a checkout
 #   TERMINAL_DRY_RUN=1                    print actions, change nothing
 #   TERMINAL_ASCII=1                      no nerd-font glyphs
+#   TERMINAL_QUICK=1                      skip the jack-in sequence
 
 set -u
 
@@ -135,6 +136,8 @@ if ! tui_interactive; then
 fi
 
 #- menu ---------------------------------------------------------------------
+
+[ "${TERMINAL_QUICK:-0}" = "1" ] || { net_module boot && boot_main; }
 
 while [ "$TUI_EXIT" -eq 0 ]; do
     ui_banner
