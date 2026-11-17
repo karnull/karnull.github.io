@@ -55,7 +55,7 @@ const samplePosts = [
   },
   {
     id: 4,
-    year: 2018,
+    year: "2018",
     heading: "Round Square: Eye Camp",
     paragraph: [
       "In my final year of high school, I took part in a Round Square volunteer programme in India focused on eye health in underserved communities. Before the trip, we were trained by professionals to carry out basic eye tests, and once there we helped raise awareness, assess vision and provide glasses to people who otherwise had little access to that kind of care.",
@@ -80,7 +80,7 @@ interface PostCardProps {
   heading: string;
   paragraph: string[];
   images: string[];
-  year: number;
+  year: string;
 }
 
 const parseParagraph = (paragraph: string[]) => {
