@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import MatrixRain from "@/components/MatrixRain";
+import { useDocumentTitle } from "@/hooks/use-document-title";
 
 interface PageLayoutProps {
   title: string;
@@ -8,9 +9,12 @@ interface PageLayoutProps {
   wide?: boolean;
   fluid?: boolean;
   innerMaxWidth?: string;
+  documentTitle?: string;
 }
 
-const PageLayout = ({ title, children, wide = false, fluid = false, innerMaxWidth }: PageLayoutProps) => {
+const PageLayout = ({ title, children, wide = false, fluid = false, innerMaxWidth, documentTitle }: PageLayoutProps) => {
+  useDocumentTitle(documentTitle ?? title);
+
   const containerClass = fluid
     ? 'w-full px-[clamp(1.5rem,5vw,6rem)] py-16'
     : `container mx-auto px-6 py-16 ${wide ? 'max-w-6xl' : 'max-w-4xl'}`;

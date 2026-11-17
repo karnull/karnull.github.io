@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const JournalEntry2 = () => {
   return (
-    <PageLayout title="Writing">
+    <PageLayout title="Writing" documentTitle="What automation should be for">
       <div className="space-y-8">
         <Link
           to="/journal"
