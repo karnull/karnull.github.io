@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
 
-type Grade = "projects" | "learning" | "toolsAndScripts" | "templates" | "contributions";
+type Grade = "projects" | "scripts" | "templates" | "contributions";
 
 interface CodePost {
   heading: string;
@@ -24,64 +24,315 @@ const codebasePosts: CodePost[] = [
     grade: "projects",
     heading: "switchboard.nvim",
     description:
-      "One keybind - different actions. Plugin to bind per-project automations to single key.",
-    tags: ["neovim", "tmux", ":term"],
+      "One keybind, different actions. Binds per-project automations to a single key.",
+    tags: ["Lua", "Neovim", "tmux"],
     link: "https://github.com/karnull/switchboard.nvim",
-  },
-  {
-    grade: "templates",
-    heading: "",
-    description: "Generic",
-    tags: [],
-    link: "https://github.com/karnull/templates",
-  },
-  {
-    grade: "templates",
-    heading: "",
-    description: "Go",
-    tags: [],
-    link: "https://github.com/karnull/templates/tree/go",
-  },
-  {
-    grade: "templates",
-    heading: "",
-    description: "Python",
-    tags: [],
-    link: "https://github.com/karnull/templates/tree/python",
-  },
-  {
-    grade: "templates",
-    heading: "",
-    description: "Rust",
-    tags: [],
-    link: "https://github.com/karnull/templates/tree/rust",
   },
   {
     year: 2026,
     grade: "projects",
-    heading: "OpenNetics - Capture_SRM",
+    heading: "tmux-telemetry",
     description:
-      "Tool to visualise serial read and record gestures for OpenNetics dev.",
-    tags: ["Python", "QT", "scipy", "numpy"],
+      "Keeps a log of where the working day goes, from tmux session, window and pane switches, without changing how you work.",
+    tags: ["Go", "tmux"],
+    link: "https://github.com/karnull/tmux-telemetry",
+  },
+  {
+    year: 2026,
+    grade: "projects",
+    heading: "datakrash",
+    description:
+      "Tracks your activity across services and, when you go quiet, checks in over ntfy before alerting a contact.",
+    tags: ["Python", "systemd", "ntfy"],
+    link: "https://github.com/karnull/datakrash",
+  },
+  {
+    year: 2026,
+    grade: "projects",
+    heading: "osc52pty",
+    description:
+      "Workaround that brings OSC 52 clipboard copying to Terminal.app.",
+    tags: ["Go", "macOS"],
+    link: "https://github.com/karnull/osc52pty",
+  },
+  {
+    year: 2026,
+    grade: "projects",
+    heading: "grid",
+    description:
+      "Arranges a set of images into a single PNG collage.",
+    tags: ["Go"],
+    link: "https://github.com/karnull/grid",
+  },
+  {
+    year: 2026,
+    grade: "projects",
+    heading: "OpenNetics - Capture-SRM",
+    description:
+      "Reads raw sensor values over serial, records gestures and builds machine learning models from them.",
+    tags: ["Python", "Qt", "SciPy", "NumPy"],
     link: "https://github.com/OpenNetics/Capture-SRM",
+  },
+  {
+    year: 2024,
+    grade: "projects",
+    heading: "tokyoburn.nvim",
+    description:
+      "Red-themed fork of folke/tokyonight.nvim.",
+    tags: ["Lua", "Neovim"],
+    link: "https://github.com/karnull/tokyoburn.nvim",
+  },
+  {
+    year: 2024,
+    grade: "projects",
+    heading: "only-tmux.nvim",
+    description:
+      "A Neovim keybind for :only that works on tmux panes too.",
+    tags: ["Lua", "Neovim", "tmux"],
+    link: "https://github.com/karnull/only-tmux.nvim",
+  },
+  {
+    year: 2026,
+    grade: "projects",
+    heading: "tnotify",
+    description:
+      "Notifications shown as a tmux overlay.",
+    tags: ["Go", "tmux"],
+    link: "https://github.com/karnull/tnotify",
+  },
+  {
+    year: 2026,
+    grade: "projects",
+    heading: "ifdef.nvim",
+    description:
+      "Maps nested #ifdef blocks in C and C++ files, with a tree view and labels for matching #endif lines.",
+    tags: ["Lua", "Neovim", "C/C++"],
+    link: "https://github.com/karnull/ifdef.nvim",
+  },
+  {
+    year: 2024,
+    grade: "projects",
+    heading: "text invert (ti)",
+    description:
+      "Formats text, passed as arguments or piped in, into one of several output styles.",
+    tags: ["C"],
+    link: "https://github.com/karnull/ti",
+  },
+  {
+    year: 2024,
+    grade: "projects",
+    heading: "trash",
+    description:
+      "Deletes files to the system trash, lists what's there and restores them by ID.",
+    tags: ["Go"],
+    link: "https://github.com/karnull/trash",
   },
   {
     year: 2025,
     grade: "projects",
     heading: "smonitor",
     description:
-      "Tool for reading and writing serial port data with timestamped logging capabilities.",
-    tags: ["Serial Communication", "C++"],
+      "Terminal serial monitor with timestamps and saving straight to file.",
+    tags: ["C++", "Arduino", "Serial Communication"],
     link: "https://github.com/karnull/smonitor",
   },
   {
-    year: 2025,
-    grade: "learning",
-    heading: "IoT Firmware",
+    year: 2021,
+    grade: "projects",
+    heading: "fetch",
     description:
-      "Firmware development for IoT devices featuring ECG and motion sensors.",
-    tags: ["C", "C++", "ESP-IDF", "IoT"],
-    link: "https://github.com/karnull/SWE30011-Firmware",
+      "Collection of minimal system fetch scripts.",
+    tags: ["Shell"],
+    link: "https://github.com/karnull/fetch",
+  },
+  {
+    year: 2023,
+    grade: "projects",
+    heading: "ytdl_GTK3",
+    description:
+      "GTK 3 front end for youtube-dl.",
+    tags: ["Python", "GTK 3"],
+    link: "https://github.com/karnull/ytdl_GTK3",
+  },
+  {
+    year: 2026,
+    grade: "scripts",
+    heading: "git_fuzzy.sh",
+    description:
+      "Fuzzy pickers for everyday git chores - branches, worktrees, stashes and staging.",
+    tags: ["Git", "Shell", "fzf"],
+    link: "https://github.com/karnull/gists/blob/main/git_fuzzy.sh",
+  },
+  {
+    year: 2026,
+    grade: "scripts",
+    heading: "git_logs.sh",
+    description:
+      "A tidier git log, with a coloured commit graph and fzf actions on picked commits.",
+    tags: ["Git", "Shell", "fzf"],
+    link: "https://github.com/karnull/gists/blob/main/git_logs.sh",
+  },
+  {
+    year: 2025,
+    grade: "scripts",
+    heading: "namedit.sh",
+    description:
+      "Mass-renames files in your $EDITOR, and converts them with ffmpeg when the extension changes.",
+    tags: ["Workflow", "Shell", "ffmpeg"],
+    link: "https://github.com/karnull/gists/blob/main/namedit.sh",
+  },
+  {
+    year: 2024,
+    grade: "scripts",
+    heading: "copy_code.sh",
+    description:
+      "Copies every source file of a given type to the clipboard in one go.",
+    tags: ["Workflow", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/copy_code.sh",
+  },
+  {
+    year: 2024,
+    grade: "scripts",
+    heading: "vimacro.sh",
+    description:
+      "Vim macros in the shell: record a sequence of edits and replay it across input.",
+    tags: ["Workflow", "Shell", "Vim"],
+    link: "https://github.com/karnull/gists/blob/main/vimacro.sh",
+  },
+  {
+    year: 2025,
+    grade: "scripts",
+    heading: "rmsymlink.sh",
+    description:
+      "Removes a symbolic link together with the file it points to.",
+    tags: ["Workflow", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/rmsymlink.sh",
+  },
+  {
+    year: 2026,
+    grade: "scripts",
+    heading: "watch_file.sh",
+    description:
+      "Tails a file and sends a notification when new content is added.",
+    tags: ["Monitoring", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/watch_file.sh",
+  },
+  {
+    year: 2023,
+    grade: "scripts",
+    heading: "colors.sh",
+    description:
+      "Prints every terminal colour alongside its escape sequence.",
+    tags: ["Reference", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/colors.sh",
+  },
+  {
+    year: 2023,
+    grade: "scripts",
+    heading: "periodic.sh",
+    description:
+      "Renders the periodic table in the terminal, colour-coded by group.",
+    tags: ["Reference", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/periodic.sh",
+  },
+  {
+    year: 2021,
+    grade: "scripts",
+    heading: "battery_cap.sh",
+    description:
+      "Caps a laptop's maximum charge with a systemd service, on supported models.",
+    tags: ["Maintenance", "Shell", "systemd"],
+    link: "https://github.com/karnull/gists/blob/main/battery_cap.sh",
+  },
+  {
+    year: 2022,
+    grade: "scripts",
+    heading: "refresh.sh",
+    description:
+      "Drops system caches and reports memory usage before and after.",
+    tags: ["Maintenance", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/refresh.sh",
+  },
+  {
+    year: 2026,
+    grade: "scripts",
+    heading: "disk_usage_summary.sh",
+    description:
+      "Lists the directories and files taking up the most disk space.",
+    tags: ["Monitoring", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/disk_usage_summary.sh",
+  },
+  {
+    year: 2026,
+    grade: "scripts",
+    heading: "monitor_temp.sh",
+    description:
+      "Watches CPU and GPU temperatures and alerts when they pass a threshold.",
+    tags: ["Monitoring", "Shell"],
+    link: "https://github.com/karnull/gists/blob/main/monitor_temp.sh",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "uplink",
+    description:
+      "Small REST server that lets a container act on its host through fixed, named routes, without the Docker socket or a shell.",
+    tags: ["Python", "REST"],
+    link: "https://github.com/karshosphere/uplink",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "agent-base",
+    description:
+      "Container setup for my self-hosted agentic workflow.",
+    tags: ["Shell", "Docker"],
+    link: "https://github.com/karshosphere/agent-base",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "dev-base",
+    description:
+      "Lightweight Alpine dev container with vim, git and Claude Code built in, plus compose templates for new projects.",
+    tags: ["Shell", "Docker"],
+    link: "https://github.com/karshosphere/dev-base",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "template-github-ci",
+    description:
+      "Copier template for my generic GitHub Actions workflows.",
+    tags: ["Copier", "GitHub Actions"],
+    link: "https://github.com/karshosphere/template-github-ci",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "template-go",
+    description:
+      "Copier template for my Go projects.",
+    tags: ["Copier", "Go"],
+    link: "https://github.com/karshosphere/template-go",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "template-python",
+    description:
+      "Copier template for my Python projects.",
+    tags: ["Copier", "Python"],
+    link: "https://github.com/karshosphere/template-python",
+  },
+  {
+    year: 2026,
+    grade: "templates",
+    heading: "template-cxx",
+    description:
+      "Copier template for my C and C++ projects.",
+    tags: ["Copier", "C/C++"],
+    link: "https://github.com/karshosphere/template-cxx",
   },
   {
     year: 2024,
@@ -100,202 +351,18 @@ const codebasePosts: CodePost[] = [
     tags: ["Amber", "MacOS", "Shell"],
     link: "https://github.com/Ph0enixKM/Amber/pull/102",
   },
-  {
-    year: 2024,
-    grade: "toolsAndScripts",
-    heading: "vimacro",
-    description: "Power of vim macros on Shell.",
-    tags: ["Shell", "vim", "UNIX"],
-    link: "https://github.com/karnull/gists/blob/main/vimacro.sh",
-  },
-  {
-    year: 2024,
-    grade: "toolsAndScripts",
-    heading: "copy code",
-    description: "Copy all source-code for current project to clipboard.",
-    tags: ["Shell", "UNIX"],
-    link: "https://github.com/karnull/gists/blob/main/copy_code.sh",
-  },
-  {
-    year: 2024,
-    grade: "learning",
-    heading: "text invert (ti)",
-    description:
-      "utility to perform text transformation actions on stdin as pipes & args.",
-    tags: ["Go"],
-    link: "https://github.com/karnull/ti",
-  },
-  {
-    year: 2024,
-    grade: "learning",
-    heading: "AstroStreakNet",
-    description:
-      "Capstone Project. Interface for astronomers to manage captured streak.",
-    tags: ["Go", "Java", "Python", "Shell", "Typescript"],
-    link: "https://github.com/AstroStreakNet",
-  },
-  {
-    year: 2024,
-    grade: "toolsAndScripts",
-    heading: "only-tmux.nvim",
-    description:
-      "Zoom in a pane",
-    tags: ["neovim", "tmux"],
-    link: "https://github.com/karnull/only-tmux.nvim",
-  },
-  {
-    year: 2023,
-    grade: "toolsAndScripts",
-    heading: "resistor",
-    description: "Simple util to get resistor values from their colour bands.",
-    tags: ["C"],
-    link: "https://github.com/karnull/gists/blob/main/resistor.c",
-  },
-  {
-    year: 2023,
-    grade: "toolsAndScripts",
-    heading: "periodic",
-    description: "Print ASCII periodic table with colour code.",
-    tags: ["Shell", "UNIX"],
-    link: "https://github.com/karnull/gists/blob/main/periodic.sh",
-  },
-  {
-    year: 2023,
-    grade: "toolsAndScripts",
-    heading: "colors",
-    description: "Print all terminal \\033 terminal colours.",
-    tags: ["Shell", "UNIX"],
-    link: "https://github.com/karnull/gists/blob/main/colors.sh",
-  },
-  {
-    year: 2023,
-    grade: "learning",
-    heading: "Flight DBMS",
-    description: "Project in Julia to study user permissions within database.",
-    tags: ["Julia", "MySQL", "MariaDB"],
-    link: "https://github.com/karnull/uni-flightDBMS",
-  },
-  {
-    year: 2022,
-    grade: "toolsAndScripts",
-    heading: "Arch vulnerable",
-    description:
-      "Python web-scraper util to match local packages with known vulnerable ones.",
-    tags: ["Python", "Arch Linux", "BeautifulSoup"],
-    link: "https://github.com/karnull/arch_vulnerable",
-  },
-  {
-    year: 2022,
-    grade: "toolsAndScripts",
-    heading: "AUR helper",
-    description: "Python web-scraper util to install packages from the AUR.",
-    tags: ["Python", "Arch Linux", "BeautifulSoup"],
-    link: "https://github.com/karnull/aur_helper",
-  },
-  {
-    year: 2022,
-    grade: "toolsAndScripts",
-    heading: "refresh",
-    description: "Clear system cache to free up memory.",
-    tags: ["Shell", "UNIX"],
-    link: "https://github.com/karnull/gists/blob/main/refresh.sh",
-  },
-  {
-    year: 2022,
-    grade: "learning",
-    heading: "D02",
-    description: "Wireless Message Communicator built on top of myDAQ1.",
-    tags: ["MATLAB", "myDAQ1"],
-    link: "https://github.com/karnull/uni-d02",
-  },
-  {
-    year: 2022,
-    grade: "learning",
-    heading: "Flight Booking",
-    description: "Flight reservation website.",
-    tags: ["PHP", "HTML", "CSS", "JavaScript"],
-    link: "https://github.com/karnull/uni-delta_flights",
-  },
-  {
-    year: 2022,
-    grade: "learning",
-    heading: "Traffic Light Simulator",
-    description:
-      "FPGA design in VHDL to simulate traffic light/pedestrian buttons.",
-    tags: ["VHDL", "FPGA"],
-    link: "https://github.com/karnull/uni-traffic_light",
-  },
-  {
-    year: 2021,
-    grade: "toolsAndScripts",
-    heading: "ZellaBOT",
-    description: "Discord bot for anonymous server confessions.",
-    tags: ["Python", "Discord API"],
-    link: "https://github.com/karnull/zella_bot",
-  },
-  {
-    year: 2021,
-    grade: "toolsAndScripts",
-    heading: "fetch",
-    description: "Collection of minimal fetch scripts in bash.",
-    tags: ["Shell", "UNIX"],
-    link: "https://github.com/karnull/fetch",
-  },
-  {
-    year: 2021,
-    grade: "toolsAndScripts",
-    heading: "battery limit",
-    description:
-      "Create systemd service to put a limit on max charge percentage.",
-    tags: ["Shell", "systemd"],
-    link: "https://github.com/karnull/gists/blob/main/battery_cap.sh",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "CLI Music Player",
-    description: "Simple terminal offline music player in ruby",
-    tags: ["Ruby"],
-    link: "https://github.com/karnull/uni-music_player_cli",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "GUI Music Player",
-    description: "Simple graphical offline music player in ruby",
-    tags: ["Ruby", "Gosu"],
-    link: "https://github.com/karnull/uni-music_player_gui",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "Random Walker",
-    description: "Test randomness of a pseudorandom algorithm",
-    tags: ["Ruby", "Gosu"],
-    link: "https://github.com/karnull/uni-random_walker",
-  },
-  {
-    year: 2021,
-    grade: "learning",
-    heading: "Genesis",
-    description: "2D adventure game.",
-    tags: ["Ruby", "Gosu"],
-    link: "https://github.com/karnull/uni-genesis",
-  },
 ];
 
 const gradeLabels: Record<Grade, string> = {
-  projects: "Projects",
-  learning: "Learning",
-  toolsAndScripts: "Tools & Scripts",
-  templates: "Templates",
+  projects: "Tools & Plugins",
+  scripts: "Scripts",
+  templates: "Scaffolding",
   contributions: "Contributions",
 };
 
 const grades: Grade[] = [
   "projects",
-  "learning",
-  "toolsAndScripts",
+  "scripts",
   "templates",
   "contributions",
 ];
@@ -335,8 +402,7 @@ const CodePostCard = ({ post }: { post: CodePost }) => (
 const Codebase = () => {
   const [openGrades, setOpenGrades] = useState<Record<Grade, boolean>>({
     projects: true,
-    learning: false,
-    toolsAndScripts: false,
+    scripts: false,
     templates: false,
     contributions: false,
   });
