@@ -28,6 +28,7 @@ public/
       whoami.sh         session, host and network
       card.sh           contact card and PGP fingerprint
       colours.sh        terminal colour and font check
+      breach.sh         breach protocol, a netrunning puzzle
       shell.sh          the command REPL
     data/
       tools.list        packages, per package manager
