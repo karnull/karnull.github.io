@@ -10,6 +10,22 @@ codebase_open() {
     return 1
 }
 
+# codebase_rows <file> <columns> -- one menu row per project, each description
+# clipped to a single screen line: a wrapped row throws off the menu's redraw.
+codebase_rows() {
+    awk -F'|' -v cols="$2" '
+        /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+        { for (i = 1; i <= NF; i++) gsub(/^[ \t]+|[ \t]+$/, "", $i) }
+        $2 != "projects" { next }
+        { label = length($1) > 16 ? length($1) : 16
+          room = cols - 7 - label
+          desc = $3 "  " $6
+          if (room < 8) desc = $3
+          else if (length(desc) > room) desc = substr(desc, 1, room - 3) "..."
+          print $1 "|" $1 "|" desc }
+    ' "$1"
+}
+
 codebase_main() {
     _f=$(net_data codebase) || { ui_err "catalog unavailable"; ui_pause; return 1; }
 
@@ -19,22 +35,12 @@ codebase_main() {
         ui_note "mirrors $TUI_BASE/codebase"
         printf '\n'
 
-        # One heading per kind, emitted when the kind changes. The catalog
-        # keeps each group's rows together, so a single pass is enough.
-        set --
-        _seen=''
-        while IFS='|' read -r _n _kind _year _url _desc; do
-            case "$_n" in '' | \#*) continue ;; esac
-            sys_trim "$_n";    _n=$TRIMMED
-            sys_trim "$_kind"; _kind=$TRIMMED
-            sys_trim "$_year"; _year=$TRIMMED
-            sys_trim "$_desc"; _desc=$TRIMMED
-            if [ "$_kind" != "$_seen" ]; then
-                set -- "$@" "--|$_kind|"
-                _seen=$_kind
-            fi
-            set -- "$@" "$_n|$_n|$_year  $_desc"
-        done < "$_f"
+        set -- "--|projects|"
+        while IFS= read -r _row; do
+            set -- "$@" "$_row"
+        done <<ROWS
+$(codebase_rows "$_f" "$(ui_cols)")
+ROWS
 
         set -- "$@" "__back|back|"
 
@@ -47,16 +53,16 @@ codebase_main() {
 codebase_detail() {
     _line=$(sys_row "$1" "$2")
     [ -z "$_line" ] && return 1
-    _kind=$(sys_field "$_line" 2)
     _year=$(sys_field "$_line" 3)
     _url=$(sys_field "$_line" 4)
-    _desc=$(sys_field "$_line" 5)
+    _tags=$(sys_field "$_line" 5)
+    _desc=$(sys_field "$_line" 6)
 
     while :; do
         ui_banner
         ui_head "codebase / $2"
-        ui_kv "kind" "$_kind"
         ui_kv "year" "$_year"
+        ui_kv "tags" "$_tags"
         ui_kv "url"  "$_url"
         printf '\n   %s%s%s\n\n' "$C_WHITE" "$_desc" "$C_RESET"
 
