@@ -2,22 +2,22 @@ import PageLayout from "@/components/PageLayout";
 import { useState, useEffect } from "react";
 
 // Import local community images
-import imgGreekClub1 from "@/assets/community/GreekClub/committee1.jpg";
-import imgGreekClub2 from "@/assets/community/GreekClub/IMG_3497.png";
-import imgGreekClub3 from "@/assets/community/GreekClub/IMG_3503.png";
-import imgGreekClub4 from "@/assets/community/GreekClub/IMG_3578.png";
-import imgIn2Science1 from "@/assets/community/In2Science/finalist.png";
-import imgIn2Science2 from "@/assets/community/In2Science/group.jpg";
-import imgIn2Science3 from "@/assets/community/In2Science/student.jpg";
-import imgRoundSquare1 from "@/assets/community/RoundSquare/DSC_0744.jpg";
-import imgRoundSquare2 from "@/assets/community/RoundSquare/IMG_20180406_100611.jpg";
-import imgRoundSquare3 from "@/assets/community/RoundSquare/IMG_20180409_110537.jpg";
-import imgRoundSquare4 from "@/assets/community/RoundSquare/IMG_3408.jpg";
-import imgRoundSquare5 from "@/assets/community/RoundSquare/IMG_3777.jpg";
-import imgRoundSquare6 from "@/assets/community/RoundSquare/IMG_7347.jpg";
-import imgRoundSquare7 from "@/assets/community/RoundSquare/m2.jpg";
-import imgRoundSquare8 from "@/assets/community/RoundSquare/newspaper.png";
-import imgRoundSquare9 from "@/assets/community/RoundSquare/thumbnail_IMG_0365.jpg";
+import imgGreekClub1 from "@/assets/community/GreekClub/committee1.webp";
+import imgGreekClub2 from "@/assets/community/GreekClub/IMG_3497.webp";
+import imgGreekClub3 from "@/assets/community/GreekClub/IMG_3503.webp";
+import imgGreekClub4 from "@/assets/community/GreekClub/IMG_3578.webp";
+import imgIn2Science1 from "@/assets/community/In2Science/finalist.webp";
+import imgIn2Science2 from "@/assets/community/In2Science/group.webp";
+import imgIn2Science3 from "@/assets/community/In2Science/student.webp";
+import imgRoundSquare1 from "@/assets/community/RoundSquare/DSC_0744.webp";
+import imgRoundSquare2 from "@/assets/community/RoundSquare/IMG_20180406_100611.webp";
+import imgRoundSquare3 from "@/assets/community/RoundSquare/IMG_20180409_110537.webp";
+import imgRoundSquare4 from "@/assets/community/RoundSquare/IMG_3408.webp";
+import imgRoundSquare5 from "@/assets/community/RoundSquare/IMG_3777.webp";
+import imgRoundSquare6 from "@/assets/community/RoundSquare/IMG_7347.webp";
+import imgRoundSquare7 from "@/assets/community/RoundSquare/m2.webp";
+import imgRoundSquare8 from "@/assets/community/RoundSquare/newspaper.webp";
+import imgRoundSquare9 from "@/assets/community/RoundSquare/thumbnail_IMG_0365.webp";
 
 const samplePosts = [
   {
