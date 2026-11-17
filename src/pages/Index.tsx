@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MatrixRain from "@/components/MatrixRain";
+import { useDocumentTitle } from "@/hooks/use-document-title";
 
 const personalItems = [
   {
@@ -253,6 +254,8 @@ const MelbourneClock = () => {
 };
 
 const Index = () => {
+  useDocumentTitle();
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Matrix rain effect */}
