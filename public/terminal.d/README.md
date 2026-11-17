@@ -22,12 +22,14 @@ public/
       net.sh            fetching, caching, module loading
       sys.sh            host detection, catalog parsing, safe file placement
     modules/
+      boot.sh           the jack-in sequence before the first menu
       install.sh        tools, configs and scripts
       doctor.sh         what this host has and is missing
       codebase.sh       browse the work, open or clone it
       whoami.sh         session, host and network
       card.sh           contact card and PGP fingerprint
       colours.sh        terminal colour and font check
+      breach.sh         breach protocol, a netrunning puzzle
       shell.sh          the command REPL
     data/
       tools.list        packages, per package manager
@@ -50,6 +52,7 @@ under dash, bash-as-sh, busybox ash and zsh-as-sh.
 | against `npm run dev` | `TERMINAL_BASE=http://localhost:8080 sh public/terminal` |
 | change nothing | `TERMINAL_DRY_RUN=1 sh public/terminal` |
 | no nerd font | `TERMINAL_ASCII=1 sh public/terminal` |
+| skip the boot sequence | `TERMINAL_QUICK=1 sh public/terminal` |
 
 Run from a checkout and the files next to `public/terminal` are used directly,
 so edits show up without a deploy. `TERMINAL_LOCAL=/path/to/terminal.d` forces
