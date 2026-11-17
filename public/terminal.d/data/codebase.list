@@ -15,7 +15,6 @@ only-tmux.nvim   | nvim  | 2025 | https://github.com/karnull/only-tmux.nvim     
 ghdl.nvim        | nvim  | 2024 | https://github.com/karnull/ghdl.nvim          | vhdl development in neovim
 smonitor         | tool  | 2025 | https://github.com/karnull/smonitor           | serial monitor, timestamped, saves to file
 gun              | tool  | 2025 | https://github.com/karnull/gun                | go run across projects (archived)
-ti               | tool  | 2025 | https://github.com/karnull/ti                 | text invert: reformat args or piped input
 MemoryPercent    | tool  | 2024 | https://github.com/karnull/MemoryPercent      | percentage of time elapsed since a date
 arch_vulnerable  | tool  | 2022 | https://github.com/karnull/arch_vulnerable    | match local packages against known CVEs (archived)
 aur_helper       | tool  | 2022 | https://github.com/karnull/aur_helper         | install packages from the AUR (archived)

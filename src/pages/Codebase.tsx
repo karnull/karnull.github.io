@@ -58,15 +58,6 @@ const codebasePosts: CodePost[] = [
   {
     year: 2026,
     grade: "projects",
-    heading: "grid",
-    description:
-      "Arranges a set of images into a single PNG collage.",
-    tags: ["Go"],
-    link: "https://github.com/karnull/grid",
-  },
-  {
-    year: 2026,
-    grade: "projects",
     heading: "OpenNetics - Capture-SRM",
     description:
       "Reads raw sensor values over serial, records gestures and builds machine learning models from them.",
@@ -112,15 +103,6 @@ const codebasePosts: CodePost[] = [
   {
     year: 2024,
     grade: "projects",
-    heading: "text invert (ti)",
-    description:
-      "Formats text, passed as arguments or piped in, into one of several output styles.",
-    tags: ["C"],
-    link: "https://github.com/karnull/ti",
-  },
-  {
-    year: 2024,
-    grade: "projects",
     heading: "trash",
     description:
       "Deletes files to the system trash, lists what's there and restores them by ID.",
@@ -144,15 +126,6 @@ const codebasePosts: CodePost[] = [
       "Collection of minimal system fetch scripts.",
     tags: ["Shell"],
     link: "https://github.com/karnull/fetch",
-  },
-  {
-    year: 2023,
-    grade: "projects",
-    heading: "ytdl_GTK3",
-    description:
-      "GTK 3 front end for youtube-dl.",
-    tags: ["Python", "GTK 3"],
-    link: "https://github.com/karnull/ytdl_GTK3",
   },
   {
     year: 2026,
