@@ -2,9 +2,9 @@ import PageLayout from "@/components/PageLayout";
 import { useState, useEffect } from "react";
 import { ExternalLink } from "lucide-react";
 
-import imgLogo from "@/assets/opennetics/Logo.png";
-import imgGestureTracker from "@/assets/opennetics/GestureTracker.png";
-import imgPipPackage from "@/assets/opennetics/PipPackage.png";
+import imgLogo from "@/assets/opennetics/Logo.webp";
+import imgGestureTracker from "@/assets/opennetics/GestureTracker.webp";
+import imgPipPackage from "@/assets/opennetics/PipPackage.webp";
 
 const screenshots = [imgLogo, imgGestureTracker, imgPipPackage];
 

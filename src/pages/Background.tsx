@@ -2,8 +2,8 @@ import PageLayout from "@/components/PageLayout";
 import ImageSlideshow from "@/components/ImageSlideshow";
 
 // Import portrait images for slideshow
-import img1 from "@/assets/me/7232.jpg";
-import img2 from "@/assets/me/7238.jpg";
+import img1 from "@/assets/me/7232.webp";
+import img2 from "@/assets/me/7238.webp";
 
 const slideshowImages = [img1, img2];
 
