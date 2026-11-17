@@ -6,7 +6,7 @@ const JournalEntry2 = () => {
     <PageLayout title="Writing" documentTitle="What automation should be for">
       <div className="space-y-8">
         <Link
-          to="/journal"
+          to="/writing"
           className="text-primary/60 font-mono text-sm hover:text-primary transition-colors"
         >
           ← back to writing

@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 import AudioPlayer from "./components/AudioPlayer";
@@ -38,7 +38,8 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/opennetics" element={<Opennetics />} />
           <Route path="/certifications" element={<Certifications />} />
-          <Route path="/journal" element={<Journal />} />
+          <Route path="/writing" element={<Journal />} />
+          <Route path="/journal" element={<Navigate to="/writing" replace />} />
           <Route
             path="/writing/withdrawing-from-grad-school"
             element={<JournalEntry1 />}

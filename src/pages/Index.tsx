@@ -22,7 +22,7 @@ const personalItems = [
   {
     name: "writing/",
     description: "observations, ideas and reflections",
-    to: "/journal",
+    to: "/writing",
   },
 ];
 
