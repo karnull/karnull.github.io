@@ -101,7 +101,7 @@ const TerminalHeading = () => {
     <div className="font-mono">
       <span className="text-primary/60">$</span>
       <span className="text-primary/60 ml-2">whoami</span>
-      <div className="mt-2">
+      <h1 className="mt-2" aria-label="Karsh">
         <span className="text-primary text-3xl md:text-5xl font-bold tracking-tight">
           {displayText}
         </span>
@@ -112,7 +112,7 @@ const TerminalHeading = () => {
         >
           _
         </span>
-      </div>
+      </h1>
     </div>
   );
 };
