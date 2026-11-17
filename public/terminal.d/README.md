@@ -33,7 +33,7 @@ public/
       tools.list        packages, per package manager
       configs.list      dotfiles and where they go
       scripts.list      standalone scripts for ~/.local/bin
-      codebase.list     mirrors karsh.page/codebase
+      codebase.list     the projects, also rendered by karsh.page/codebase
       links.list        the contact card
 ```
 
