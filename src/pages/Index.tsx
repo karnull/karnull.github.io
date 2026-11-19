@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MatrixRain from "@/components/MatrixRain";
+import { useDocumentTitle } from "@/hooks/use-document-title";
 
 const personalItems = [
   {
@@ -21,7 +22,7 @@ const personalItems = [
   {
     name: "writing/",
     description: "observations, ideas and reflections",
-    to: "/journal",
+    to: "/writing",
   },
 ];
 
@@ -47,9 +48,10 @@ const profileItems = [
   },
 ];
 
-const TYPE_DELAY = 80;
-const ERASE_DELAY = 60;
-const HOLD_DELAY = 500;
+const TYPE_DELAY = 120;
+const ERASE_DELAY = 90;
+const KARNULL_HOLD = 2000;
+const KARSH_HOLD = 5000;
 
 type HeadingFrame = { text: string; delay: number };
 
@@ -59,17 +61,22 @@ const typeFrames = (from: string, to: string): HeadingFrame[] =>
     delay: TYPE_DELAY,
   }));
 
-const eraseFrames = (from: string, to: string): HeadingFrame[] =>
+const eraseFrames = (from: string, to: string, hold: number): HeadingFrame[] =>
   Array.from({ length: from.length - to.length }, (_, i) => ({
     text: from.slice(0, from.length - i - 1),
-    delay: i === 0 ? HOLD_DELAY : ERASE_DELAY,
+    delay: i === 0 ? hold : ERASE_DELAY,
   }));
 
-const HEADING_FRAMES: HeadingFrame[] = [
-  ...typeFrames("", "Karnull"),
-  ...eraseFrames("Karnull", "Kar"),
+const INTRO_FRAMES = typeFrames("", "Karnull");
+
+const LOOP_FRAMES: HeadingFrame[] = [
+  ...eraseFrames("Karnull", "Kar", KARNULL_HOLD),
   ...typeFrames("Kar", "Karsh"),
+  ...eraseFrames("Karsh", "Kar", KARSH_HOLD),
+  ...typeFrames("Kar", "Karnull"),
 ];
+
+const HEADING_FRAMES = [...INTRO_FRAMES, ...LOOP_FRAMES];
 
 const TerminalHeading = () => {
   const [displayText, setDisplayText] = useState("");
@@ -78,11 +85,12 @@ const TerminalHeading = () => {
   useEffect(() => {
     let frameTimeout: ReturnType<typeof setTimeout>;
     const showFrame = (index: number) => {
-      if (index >= HEADING_FRAMES.length) return;
       const { text, delay } = HEADING_FRAMES[index];
+      const next =
+        index + 1 < HEADING_FRAMES.length ? index + 1 : INTRO_FRAMES.length;
       frameTimeout = setTimeout(() => {
         setDisplayText(text);
-        showFrame(index + 1);
+        showFrame(next);
       }, delay);
     };
     showFrame(0);
@@ -101,7 +109,7 @@ const TerminalHeading = () => {
     <div className="font-mono">
       <span className="text-primary/60">$</span>
       <span className="text-primary/60 ml-2">whoami</span>
-      <div className="mt-2">
+      <h1 className="mt-2" aria-label="Karsh">
         <span className="text-primary text-3xl md:text-5xl font-bold tracking-tight">
           {displayText}
         </span>
@@ -112,7 +120,7 @@ const TerminalHeading = () => {
         >
           _
         </span>
-      </div>
+      </h1>
     </div>
   );
 };
@@ -246,6 +254,8 @@ const MelbourneClock = () => {
 };
 
 const Index = () => {
+  useDocumentTitle();
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Matrix rain effect */}

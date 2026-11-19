@@ -1,9 +1,11 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import MatrixRain from "@/components/MatrixRain";
+import { useDocumentTitle } from "@/hooks/use-document-title";
 
 const NotFound = () => {
   const location = useLocation();
+  useDocumentTitle("404");
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

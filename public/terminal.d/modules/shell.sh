@@ -50,17 +50,12 @@ shell_list() {
         project | projects | code | codebase)
             _f=$(net_data codebase) || { ui_err "catalog unavailable"; return 1; }
             ui_head "codebase"
-            _seen=''
-            while IFS='|' read -r _n _kind _year _url _desc; do
+            while IFS='|' read -r _n _kind _year _url _tags _desc; do
                 case "$_n" in '' | \#*) continue ;; esac
+                sys_trim "$_kind"; [ "$TRIMMED" = "projects" ] || continue
                 sys_trim "$_n";    _n=$TRIMMED
-                sys_trim "$_kind"; _kind=$TRIMMED
                 sys_trim "$_year"; _year=$TRIMMED
                 sys_trim "$_url";  _url=$TRIMMED
-                if [ "$_kind" != "$_seen" ]; then
-                    printf '\n   %s%s%s\n' "$C_DIM" "$_kind" "$C_RESET"
-                    _seen=$_kind
-                fi
                 printf '     %s%-17s%s %s%s%s  %s\n' \
                     "$C_GREEN" "$_n" "$C_RESET" "$C_DIM" "$_year" "$C_RESET" "$_url"
             done < "$_f"

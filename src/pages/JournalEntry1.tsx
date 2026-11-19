@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const JournalEntry1 = () => {
   return (
-    <PageLayout title="Writing">
+    <PageLayout title="Writing" documentTitle="Withdrawing from Grad School">
       <div className="space-y-8">
         <Link
-          to="/journal"
+          to="/writing"
           className="text-primary/60 font-mono text-sm hover:text-primary transition-colors"
         >
           ← back to writing
