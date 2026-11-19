@@ -18,6 +18,9 @@ shell_help() {
      card                        contact card and PGP fingerprint
      colours                     terminal colour and font check
 
+   play
+     breach                      breach protocol, a netrunning puzzle
+
    list
      list tools                  packages the dotfiles expect
      list configs                per-tool configuration files
@@ -128,6 +131,15 @@ shell_main() {
 
             list | ls)
                 shell_list "$@"
+                ;;
+
+            breach | hack | netrun)
+                net_module breach || continue
+                UI_NOPAUSE=0
+                breach_main
+                UI_NOPAUSE=1
+                ui_banner
+                ui_head "shell"
                 ;;
 
             install | add | get)
