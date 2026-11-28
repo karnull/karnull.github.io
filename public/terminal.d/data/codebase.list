@@ -40,6 +40,5 @@ template-go                | templates | 2026 | https://github.com/karshosphere/
 template-python            | templates | 2026 | https://github.com/karshosphere/template-python | Copier, Python | Copier template for my Python projects.
 template-cxx               | templates | 2026 | https://github.com/karshosphere/template-cxx | Copier, C/C++ | Copier template for my C and C++ projects.
 template-rs                | templates | 2026 | https://github.com/karshosphere/template-rs | Copier, Rust | Copier template for my Rust projects.
-template-repository        | templates | 2026 | https://github.com/karshosphere/template-repository | GitHub, Make | Bare GitHub template repository, with the make targets the shared CI expects.
 TE SM9000 pressure sensors | contributions | 2024 | https://github.com/teemune/TE_SM9000_library/pull/2 | C++, Drivers | Fixed ambiguous I2C address type in Wire.requestFrom() call. Patch 1.2.2
 Amber                      | contributions | 2024 | https://github.com/Ph0enixKM/Amber/pull/102 | Amber, MacOS, Shell | Patched Amber's installer for MacOS installation.
