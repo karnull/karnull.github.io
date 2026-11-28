@@ -6,11 +6,11 @@
 # kind is the page section: projects or scripts. The terminal shows only
 # projects; scripts it installs from scripts.list instead. Rows appear in file
 # order within their kind. Tags are comma-separated. No field may contain "|".
+AnonSurf-plus              | projects | 2026 | https://github.com/karnull/AnonSurf-plus | macOS, Tor | Parrot OS's AnonSurf for macOS, routing the system's traffic through Tor.
 switchboard.nvim           | projects | 2026 | https://github.com/karnull/switchboard.nvim | Lua, Neovim, tmux | One keybind, different actions. Binds per-project automations to a single key.
 tmux-telemetry             | projects | 2026 | https://github.com/karnull/tmux-telemetry | Go, tmux | Keeps a log of where the working day goes, from tmux session, window and pane switches, without changing how you work.
 datakrash                  | projects | 2026 | https://github.com/karnull/datakrash | Python, systemd, ntfy | Tracks your activity across services and, when you go quiet, checks in over ntfy before alerting a contact.
 osc52pty                   | projects | 2026 | https://github.com/karnull/osc52pty | Go, macOS | Workaround that brings OSC 52 clipboard copying to Terminal.app.
-AnonSurf-plus              | projects | 2026 | https://github.com/karnull/AnonSurf-plus | macOS, Tor | Parrot OS's AnonSurf for macOS, routing the system's traffic through Tor.
 OpenNetics - Capture-SRM   | projects | 2026 | https://github.com/OpenNetics/Capture-SRM | Python, Qt, SciPy, NumPy | Reads raw sensor values over serial, records gestures and builds machine learning models from them.
 tokyoburn.nvim             | projects | 2024 | https://github.com/karnull/tokyoburn.nvim | Lua, Neovim | Red-themed fork of folke/tokyonight.nvim.
 only-tmux.nvim             | projects | 2024 | https://github.com/karnull/only-tmux.nvim | Lua, Neovim, tmux | A Neovim keybind for :only that works on tmux panes too.
@@ -40,6 +40,5 @@ template-go                | templates | 2026 | https://github.com/karshosphere/
 template-python            | templates | 2026 | https://github.com/karshosphere/template-python | Copier, Python | Copier template for my Python projects.
 template-cxx               | templates | 2026 | https://github.com/karshosphere/template-cxx | Copier, C/C++ | Copier template for my C and C++ projects.
 template-rs                | templates | 2026 | https://github.com/karshosphere/template-rs | Copier, Rust | Copier template for my Rust projects.
-template-repository        | templates | 2026 | https://github.com/karshosphere/template-repository | GitHub, Make | Bare GitHub template repository, with the make targets the shared CI expects.
 TE SM9000 pressure sensors | contributions | 2024 | https://github.com/teemune/TE_SM9000_library/pull/2 | C++, Drivers | Fixed ambiguous I2C address type in Wire.requestFrom() call. Patch 1.2.2
 Amber                      | contributions | 2024 | https://github.com/Ph0enixKM/Amber/pull/102 | Amber, MacOS, Shell | Patched Amber's installer for MacOS installation.
